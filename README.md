@@ -1,6 +1,6 @@
 # FF4FE Perfected
 
-This is a fork of the open-source version of Free Enterprise 4.x.  Logic has been revised because the only way is to fade the TwinHarp.
+This is a fork of the open-source version of Free Enterprise 4.x.  Logic has been revised because the only way is to fade the TwinHarp, among other things.
 
 ## Setup
 
