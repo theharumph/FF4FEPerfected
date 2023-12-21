@@ -2,6 +2,8 @@
 
 This is a fork of the open-source version of Free Enterprise 4.x.  Logic has been revised because the only way is to fade the TwinHarp, among other things.
 
+This will be messy, as I have no idea what I'm doing.
+
 ## Setup
 
 Instructions at the main FreeEnterprise4 github.
