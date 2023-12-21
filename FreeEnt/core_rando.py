@@ -28,12 +28,12 @@ COMMON_BRANCHES = [
 
 HOOK_UNDERGROUND_BRANCH = ['#item.fe_Hook?', 'kingqueen_slot', 'rubicant_slot', 'underground']
 
+# move Twinharp to Nonessential
 ESSENTIAL_KEY_ITEMS = {
     KeyItemReward('#item.Package')         : RewardSlot.starting_item, #'package_slot',
     KeyItemReward('#item.SandRuby')        : RewardSlot.antlion_item, #'sandruby_slot', 
     KeyItemReward('#item.Baron')           : RewardSlot.baron_inn_item, #'baron_key_slot',
-    KeyItemReward('#item.TwinHarp')        : RewardSlot.toroia_hospital_item, #'twinharp_slot', 
-    KeyItemReward('#item.EarthCrystal')    : RewardSlot.magnes_item, #'earth_crystal_slot',
+    KeyItemReward('#item.EarthCrystal')    : RewardSlot.toroia_hospital_item, #'twinharp_slot',
     KeyItemReward('#item.Magma')           : RewardSlot.zot_item, #'magma_key_slot', 
     KeyItemReward('#item.Tower')           : RewardSlot.babil_boss_item, #'tower_key_slot', 
     KeyItemReward('#item.fe_Hook')         : RewardSlot.cannon_item, #'hook_slot',
@@ -47,6 +47,7 @@ ESSENTIAL_KEY_ITEMS = {
     }
 
 NONESSENTIAL_KEY_ITEMS = {
+    KeyItemReward('#item.TwinHarp')        : RewardSlot.rydias_mom_item, #'rydias_mom_slot', 
     KeyItemReward('#item.Spoon')           : RewardSlot.pan_trade_item, #'spoon_slot',
     KeyItemReward('#item.Pink')            : None,
     }
@@ -361,33 +362,46 @@ def apply(env):
 
     keyitem_assigner = priority_assigner.PriorityAssigner()
 
+    # add slot tier 5 for THE HARP CHECK
     # slot tiers:
     #  0 - slots allowed to contain progression items, other than MIABs
     #  1 - MIABs allowed to contain progression items
     #  2 - slots without progression items but with good stuff
     #  3 - remaining slots
+    #  4 - THE HARP CHECK
 
+    # add item tier 5 for DkMatter
     # item tiers:
     #  0 - items that cannot be in MIABs under any circumstances
     #  1 - progression items
     #  2 - non-progression key items
     #  3 - good non-progression items
     #  4 - less good non-progression items
-
+    #  5 - The Harp Check Prize
+    
     keyitem_assigner.item_tier(0).set_max_slot_bucket(0)
     keyitem_assigner.item_tier(1).set_max_slot_bucket(1)
     keyitem_assigner.item_tier(2).set_max_slot_bucket(2)
     keyitem_assigner.item_tier(3).set_max_slot_bucket(2)
+    keyitem_assigner.item_tier(5).set_max_slot_bucket(2)
 
     keyitem_assigner.slot_tier(0).extend(ITEM_SLOTS)
-    if env.options.flags.has('no_free_key_item'):
-        keyitem_assigner.slot_tier(0).remove(RewardSlot.toroia_hospital_item)
-    else:
-        keyitem_assigner.slot_tier(0).remove(RewardSlot.rydias_mom_item)
+    
+    #  REMOVE code for no free KI, as RydiaMon replaces Magnes as KI location
+    #  if env.options.flags.has('no_free_key_item'):
+    #    keyitem_assigner.slot_tier(0).remove(RewardSlot.toroia_hospital_item)
+    #  else:
+    #    keyitem_assigner.slot_tier(0).remove(RewardSlot.rydias_mom_item)
 
+    #  remove Magnes from slot tier 0, reassign to slot tier 5
+    keyitem_assigner.slot_tier(0).remove(RewardSlot.magnes_item)
+    keyitem_assigner.slot_tier(5).extend(RewardSlot.magnes_item)
+    
     keyitem_assigner.item_tier(1).extend(ESSENTIAL_KEY_ITEMS)
     keyitem_assigner.item_tier(2).extend(NONESSENTIAL_KEY_ITEMS)
 
+  
+    
     if env.meta.get('has_objectives', False) and env.meta.get('zeromus_required', True):
         keyitem_assigner.item_tier(1).remove(KeyItemReward('#item.Crystal'))
         if env.options.flags.has('objective_mode_classicforge'):
@@ -425,7 +439,6 @@ def apply(env):
 
     keyitem_assigner.slot_tier(0).extend(keyitem_capable_fight_slots[:num_privileged_fight_slots])
     keyitem_assigner.slot_tier(2).extend(keyitem_capable_fight_slots[num_privileged_fight_slots:])
-
     keyitem_assigner.slot_tier(3).extend(keyitem_incapable_fight_slots)
 
     if env.options.flags.has('key_items_in_miabs'):
@@ -486,6 +499,9 @@ def apply(env):
         rewards_assignment = RewardsAssignment()
 
         # assign key items
+        # assign DkMatter to harp check
+        rewards_assignment[RewardSlot.magnes_item] = ItemReward('#item.DkMatter')
+
         if env.options.flags.has('key_items_vanilla'):
             # vanilla assignment
             rewards_assignment[RewardSlot.fabul_item] = ItemReward('#item.BlackSword')
@@ -498,8 +514,8 @@ def apply(env):
                     
                 slot = ESSENTIAL_KEY_ITEMS[item]
                 if slot:
-                    if env.options.flags.has('no_free_key_item') and slot == RewardSlot.toroia_hospital_item:
-                        slot = RewardSlot.rydias_mom_item
+                    # if env.options.flags.has('no_free_key_item') and slot == RewardSlot.toroia_hospital_item:
+                    #    slot = RewardSlot.rydias_mom_item
                     rewards_assignment[slot] = item
                     used_keyitems.add(item.item)
             for item in NONESSENTIAL_KEY_ITEMS:
