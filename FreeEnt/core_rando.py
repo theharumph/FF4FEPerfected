@@ -229,6 +229,8 @@ CHEST_NUMBERS = {
     RewardSlot.lunar_core_chest_9    : ['#LunarSubterranTunnelMinerva', 0],
     }
 
+# remove darkelf from boss_slots list   -->     'darkelf_slot'          : ['#item.TwinHarp?'],
+
 BOSS_SLOTS = {
     'dmist_slot'            : [],
     'officer_slot'          : ['#item.Package?'],
@@ -243,7 +245,6 @@ BOSS_SLOTS = {
     'guard_slot'            : [],
     'baigan_slot'           : ['#item.Baron?'],
     'kainazzo_slot'         : ['#item.Baron?', 'baigan_slot'],
-    'darkelf_slot'          : ['#item.TwinHarp?'],
     'magus_slot'            : [],
     'valvalis_slot'         : ['#item.EarthCrystal?', 'magus_slot'],
     'calbrena_slot'         : ['underground?'],
@@ -266,6 +267,7 @@ BOSS_SLOTS = {
     'ogopogo_slot'          : ['moon?'], 
     }
 
+# remove darkelf from bosses list
 BOSSES = [
     'dmist',
     'officer',
@@ -281,7 +283,6 @@ BOSSES = [
     'karate',
     'baigan',
     'kainazzo',
-    'darkelf',
     'magus',
     'valvalis',
     'calbrena',
@@ -383,7 +384,7 @@ def apply(env):
     keyitem_assigner.item_tier(1).set_max_slot_bucket(1)
     keyitem_assigner.item_tier(2).set_max_slot_bucket(2)
     keyitem_assigner.item_tier(3).set_max_slot_bucket(2)
-    keyitem_assigner.item_tier(5).set_max_slot_bucket(2)
+    #  keyitem_assigner.item_tier(5).set_max_slot_bucket(2)
 
     keyitem_assigner.slot_tier(0).extend(ITEM_SLOTS)
     
@@ -393,9 +394,9 @@ def apply(env):
     #  else:
     #    keyitem_assigner.slot_tier(0).remove(RewardSlot.rydias_mom_item)
 
-    #  remove Magnes from slot tier 0, reassign to slot tier 5
+    #  remove Magnes from slot tier 0 
     keyitem_assigner.slot_tier(0).remove(RewardSlot.magnes_item)
-    keyitem_assigner.slot_tier(5).extend(RewardSlot.magnes_item)
+    #  keyitem_assigner.slot_tier(5).extend(RewardSlot.magnes_item)
     
     keyitem_assigner.item_tier(1).extend(ESSENTIAL_KEY_ITEMS)
     keyitem_assigner.item_tier(2).extend(NONESSENTIAL_KEY_ITEMS)
@@ -471,9 +472,9 @@ def apply(env):
     else:
         keyitem_assigner.slot_tier(3).extend(CHEST_ITEM_SLOTS)
     
-
-    if env.options.flags.has('pass_in_key_items'):
-        keyitem_assigner.item_tier(1).append(ItemReward('#item.Pass'))
+    #  Pkey is removed in FF4FEP, so this is commented out. 
+    #  if env.options.flags.has('pass_in_key_items'):
+    #  keyitem_assigner.item_tier(1).append(ItemReward('#item.Pass'))
 
     ## Deprecated no_magma code, preserving in case of future implementation.
     # if env.options.flags.has('key_items_no_magma'):
@@ -499,13 +500,13 @@ def apply(env):
         rewards_assignment = RewardsAssignment()
 
         # assign key items
-        # assign DkMatter to harp check
+        # manually assign DkMatter to harp check
         rewards_assignment[RewardSlot.magnes_item] = ItemReward('#item.DkMatter')
 
         if env.options.flags.has('key_items_vanilla'):
             # vanilla assignment
             rewards_assignment[RewardSlot.fabul_item] = ItemReward('#item.BlackSword')
-            rewards_assignment[RewardSlot.baron_castle_item] = (ItemReward('#item.Pass') if env.options.flags.has('pass_in_key_items') else EmptyReward())
+            rewards_assignment[RewardSlot.baron_castle_item] = (ItemReward('#item.Pass') # <commented out as no Pkey> if env.options.flags.has('pass_in_key_items') else EmptyReward())
 
             used_keyitems = set()
             for item in ESSENTIAL_KEY_ITEMS:
@@ -514,6 +515,7 @@ def apply(env):
                     
                 slot = ESSENTIAL_KEY_ITEMS[item]
                 if slot:
+                    # comment out no free key item check
                     # if env.options.flags.has('no_free_key_item') and slot == RewardSlot.toroia_hospital_item:
                     #    slot = RewardSlot.rydias_mom_item
                     rewards_assignment[slot] = item
@@ -536,7 +538,11 @@ def apply(env):
             keyitem_assignment, remaining_slots, remaining_items = keyitem_assigner.assign(env.rnd)
             rewards_assignment.update(keyitem_assignment)
 
-        # assign bosses
+        #  assign bosses
+        #  manually assign darkelf (harumph)
+        
+        boss_assignment[darkelf_spot] = 'darkelf'
+        
         if not env.options.flags.has('bosses_vanilla'):
             env.rnd.shuffle(bosses)
             for i,k in enumerate(assignable_boss_slots):
@@ -621,9 +627,12 @@ def apply(env):
             if '#item.Crystal' in tests:
                 tests.remove('#item.Crystal')
 
-        if env.options.flags.has('no_free_key_item'):
-            tests.append('dmist')
+        #  comment out if condition, force dmist
+        #  if env.options.flags.has('no_free_key_item'):
+        tests.append('dmist')
 
+
+        
         underground_path_disallowed = []
         if not env.options.flags.has('bosses_vanilla') and not env.options.flags.has('bosses_unsafe'):
             # must be able to access underground without encountering, golbez, wyvern, valvalis or odin replacement
@@ -910,8 +919,11 @@ def apply(env):
 
         print('BREAKDOWN of gating key items:')
         breakdown_items = list(ESSENTIAL_KEY_ITEMS)
-        if env.options.flags.has('pass_in_key_items'):
-            breakdown_items.append('#item.Pass')
+        
+        # comment out as Pkey disabled
+        # if env.options.flags.has('pass_in_key_items'):
+        #     breakdown_items.append('#item.Pass')
+        
         breakdown = {'normal':0, 'summon':0, 'moonboss':0, 'chests':0};
         for item in ESSENTIAL_KEY_ITEMS:
             for k in rewards_assignment:
@@ -935,10 +947,11 @@ def apply(env):
         potential_key_item_slots = [s for s in range(RewardSlot.MAX_COUNT) if s in rewards_assignment and isinstance(rewards_assignment[s], ItemReward) and rewards_assignment[s].is_key]
     else:
         potential_key_item_slots = list(ITEM_SLOTS)
-        if env.options.flags.has('no_free_key_item'):
-            potential_key_item_slots.remove(RewardSlot.toroia_hospital_item)
-        else:
-            potential_key_item_slots.remove(RewardSlot.rydias_mom_item)
+        # comment out as Pkey Disabled
+        # if env.options.flags.has('no_free_key_item'):
+        #     potential_key_item_slots.remove(RewardSlot.toroia_hospital_item)
+        # else:
+        #     potential_key_item_slots.remove(RewardSlot.rydias_mom_item)
         if env.options.flags.has('key_items_in_summon_quests'):
             potential_key_item_slots.extend(SUMMON_QUEST_SLOTS)
         if env.options.flags.has('key_items_in_moon_bosses'):
