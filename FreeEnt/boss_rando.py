@@ -12,11 +12,11 @@ BOSS_SLOTS = list(core_rando.BOSS_SLOTS)
 BOSSES = list(core_rando.BOSSES)
 
 SLOTS_WITH_BOSS_DEATH = [
-    'milonz_slot', 'kainazzo_slot', 'valvalis_slot', 'rubicant_slot', 'elements_slot'
+    'milonz_slot', 'kainazzo_slot', 'darkelf_slot', 'valvalis_slot', 'rubicant_slot', 'elements_slot'
     ]
 
 SLOTS_WITH_BACK_ATTACK = [
-    'milonz_slot'
+    'milonz_slot', 'darkelf_slot'
     ]
 
 SLOTS_WITH_SPECIAL_MUSIC = {
@@ -230,7 +230,7 @@ BOSS_SPRITES = {
         ['Kainazzo', 0x00, 1]
         ],
     'darkelf' : [
-        ['DarkElf', 0x00, 1]
+        ['Zemus', 0x00, 1]
         ],
     'magus' : [
         ['MagusSister', 0x01, 2], 
@@ -403,7 +403,7 @@ BOSS_SPOILER_NAMES = {
     'karate' : 'Karate',
     'baigan' : 'Baigan',
     'kainazzo' : 'Kainazzo',
-    'darkelf' : 'Dark Elf (dragon)',
+    'darkelf' : 'REDACTED',
     'magus' : 'Magus Sisters',
     'valvalis' : 'Valvalis',
     'calbrena' : 'Calbrena',
