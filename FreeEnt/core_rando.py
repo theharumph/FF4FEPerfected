@@ -75,6 +75,7 @@ VANILLA_ITEMS.update(NONESSENTIAL_KEY_ITEMS)
 VANILLA_ITEMS.update(SUMMON_QUEST_ITEMS)
 VANILLA_ITEMS.update(MOON_BOSS_ITEMS)
 
+# remove magnes from item_slots assignment -->     RewardSlot.magnes_item            : ['#item.TwinHarp?', 'darkelf_slot'],
 ITEM_SLOTS = {
     RewardSlot.starting_item          : [],
     RewardSlot.antlion_item           : ['antlion_slot'],
@@ -83,7 +84,6 @@ ITEM_SLOTS = {
     RewardSlot.baron_inn_item         : ['guard_slot', 'karate_slot'],
     RewardSlot.baron_castle_item      : ['#item.Baron?', 'baigan_slot', 'kainazzo_slot'],
     RewardSlot.toroia_hospital_item   : [],
-    RewardSlot.magnes_item            : ['#item.TwinHarp?', 'darkelf_slot'],
     RewardSlot.zot_item               : ['#item.EarthCrystal?', 'magus_slot', 'valvalis_slot'],
     RewardSlot.babil_boss_item        : ['underground?', 'lugae_slot'],
     RewardSlot.cannon_item            : ['underground?', '#item.Tower?', 'darkimp_slot'],
@@ -316,9 +316,9 @@ QUEST_REWARD_CURVES = {
         RewardSlot.rydias_mom_item,
     ],
 
+# Remove RewardSlot.magnes_item from gated quest curve, as reward is fixed.
     'Gated_Quest' : [
         RewardSlot.baron_castle_item,
-        RewardSlot.magnes_item,
         RewardSlot.zot_item,
         RewardSlot.babil_boss_item,
         RewardSlot.cannon_item,
@@ -394,8 +394,8 @@ def apply(env):
     #  else:
     #    keyitem_assigner.slot_tier(0).remove(RewardSlot.rydias_mom_item)
 
-    #  remove Magnes from slot tier 0 
-    keyitem_assigner.slot_tier(0).remove(RewardSlot.magnes_item)
+    #  remove Magnes from slot tier 0 (done with manual edits to slots groups.
+    #  keyitem_assigner.slot_tier(0).remove(RewardSlot.magnes_item)
     #  keyitem_assigner.slot_tier(5).extend(RewardSlot.magnes_item)
     
     keyitem_assigner.item_tier(1).extend(ESSENTIAL_KEY_ITEMS)
@@ -539,9 +539,9 @@ def apply(env):
             rewards_assignment.update(keyitem_assignment)
 
         #  assign bosses
-        #  manually assign darkelf (harumph)
         
-        boss_assignment[darkelf_spot] = 'darkelf'
+        #  manually assign darkelf (harumph)
+        boss_assignment['darkelf_spot'] = 'darkelf'
         
         if not env.options.flags.has('bosses_vanilla'):
             env.rnd.shuffle(bosses)
@@ -645,7 +645,8 @@ def apply(env):
             # obscure special case: if a mean boss is in Yang's slot, and
             #  DMist is in guard slot, and DMist gates underworld, then
             #  that's bad
-            if env.options.flags.has('no_free_key_item') and boss_assignment['guard_slot'] == 'dmist' and boss_assignment['karate_slot'] in mean_bosses:
+            #  remove "env.options.flags.has('no_free_key_item') and' condition as Pkey disabled
+            if  boss_assignment['guard_slot'] == 'dmist' and boss_assignment['karate_slot'] in mean_bosses:
                 mean_bosses.append('dmist')
 
             underground_path_disallowed.extend(mean_bosses)
@@ -978,10 +979,11 @@ def apply(env):
     item_spoiler_names = {it.const: it.spoilername for it in databases.get_items_dbview()}
 
     key_item_spoilers = []
-    for key_item_reward in list(ESSENTIAL_KEY_ITEMS) + list(NONESSENTIAL_KEY_ITEMS) + [ItemReward("#item.Pass")]:
+    # remove  + [ItemReward("#item.Pass")] from KI spoiler list. 
+    for key_item_reward in list(ESSENTIAL_KEY_ITEMS) + list(NONESSENTIAL_KEY_ITEMS):
         slot = rewards_assignment.find_slot(key_item_reward)
         if slot is None:
-            slot = RewardSlot.none
+            slot = RewardSlot.none   
         key_item_spoilers.append( SpoilerRow(item_spoiler_names[key_item_reward.item], REWARD_SLOT_SPOILER_NAMES[slot], obscurable=True) )
     env.spoilers.add_table("KEY ITEM LOCATIONS (and Pass if Pkey)", key_item_spoilers, public=env.options.flags.has_any('-spoil:all', '-spoil:keyitems'))
 
