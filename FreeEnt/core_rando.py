@@ -744,10 +744,11 @@ def apply(env):
         curves_dbview = databases.get_curves_dbview()
 
         unassigned_quest_slots = [slot for slot in (list(ITEM_SLOTS) + list(SUMMON_QUEST_SLOTS) + list(MOON_BOSS_SLOTS)) if slot not in rewards_assignment]
-        if env.options.flags.has('no_free_key_item'):
-            unassigned_quest_slots.remove(RewardSlot.toroia_hospital_item)
-        else:
-            unassigned_quest_slots.remove(RewardSlot.rydias_mom_item)
+        # remove if/else conditions as No Free KI disable3d
+        # if env.options.flags.has('no_free_key_item'):
+        unassigned_quest_slots.remove(RewardSlot.toroia_hospital_item)
+        # else:
+        unassigned_quest_slots.remove(RewardSlot.rydias_mom_item)
 
         if env.options.flags.has('treasure_standard') or env.options.flags.has('treasure_wild'):
             src_pool = items_dbview.find_all(lambda it: it.tier in [6, 7, 8])
