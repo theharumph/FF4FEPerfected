@@ -5,6 +5,7 @@
 ..[Omode:classicgiant] Classic Giant%
 ..[Omode:fiends] Fiends%
 ..[Omode:dkmatter] Dark Matter Hunt
+..[Omode:harp]! THE HARP CHECK
 .[@Ocustom] Custom objectives
 ..<> Custom objective #1
 ...(O1:*)
@@ -57,12 +58,10 @@
 == KEY ITEMS
 <>* Key Items
 .[Kvanilla]- No key item randomization
-..[Knofree]! No free key item in Toroia
 .[Kmain] Randomize key items
 ..[Ksummon]! Mix with summon quest rewards
 ..[Kmoon]! Mix with moon boss rewards
 ..[Kmiab]! Mix with monster-in-a-box chests
-..[Knofree]! No free key item in Toroia
 ..<> Underworld access
 ...(Kforce:magma) Guarantee underworld access via Magma Key
 ...(Kforce:hook)! Force underworld access via Hook route
@@ -70,7 +69,6 @@
 
 == PASS
 [Pshop] Include Pass in a shop
-[Pkey] Include Pass in potential key item locations
 [Pchests] Include Pass in treasure chests
 
 == CHARACTERS
