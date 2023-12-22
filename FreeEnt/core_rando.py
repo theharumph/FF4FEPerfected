@@ -632,13 +632,13 @@ def apply(env):
         tests.append('dmist')
 
 
-        
+        # add logic to prevent Magma Key at Odin Spot; dmist at rubi on force:magma
         underground_path_disallowed = []
         if not env.options.flags.has('bosses_vanilla') and not env.options.flags.has('bosses_unsafe'):
             # must be able to access underground without encountering, golbez, wyvern, valvalis or odin replacement
             # (or Dark Cecil in NFL2)
             mean_bosses = ['golbez', 'wyvern', 'valvalis', boss_assignment['odin_slot']]
-
+        
             if env.options.flags.has('no_free_bosses') and 'mirrorcecil' not in mean_bosses:
                 mean_bosses.append('mirrorcecil')
                 
@@ -646,11 +646,19 @@ def apply(env):
             #  DMist is in guard slot, and DMist gates underworld, then
             #  that's bad
             #  remove "env.options.flags.has('no_free_key_item') and' condition as Pkey disabled
-            if  boss_assignment['guard_slot'] == 'dmist' and boss_assignment['karate_slot'] in mean_bosses:
+            if boss_assignment['guard_slot'] == 'dmist' and boss_assignment['karate_slot'] in mean_bosses:
                 mean_bosses.append('dmist')
-
+           
             underground_path_disallowed.extend(mean_bosses)
 
+        # obscure special case 2: if force:magma is enabled, dmist at rubi spot should be dq'd as possibility
+        if env.options.flags.has('key_items_force_magma') and boss_assignment['rubicant_slot'] == 'dmist':
+            underground_path_disallowed.append('dmist')            
+        
+        # remove odin from possible pathing if Bvanilla and not unsafe
+        if env.options.flags.has('bosses_vanilla') and not env.options.flags.has('bosses_unsafe'):
+            underground_path_disallowed.append('odin')
+            
         if not env.options.flags.has('key_items_vanilla') and not unsafe:
             # must be able to access underground without accessing moon
             underground_path_disallowed.append('moon')
@@ -660,6 +668,8 @@ def apply(env):
 
         if env.options.flags.has('key_items_force_hook'):
             tests.append(['#item.Magma', [], 'underground'])
+
+
 
         # must be able to encounter all bosses required of forced objective flags
         tests.extend(env.meta.get('objective_required_bosses', []))
