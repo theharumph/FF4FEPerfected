@@ -13,6 +13,13 @@ Defeat Milon, Milon Z., Kainazzo, Valvalis, Rubicant, and Elements to complete t
 [Omode:dkmatter]
 45 Dark Matters are randomly placed in chests (MIABs excluded); bring 30 of them to Kory in Agart to complete this objective.
 
+[Omode:harp]
+<ul>
+    <li>Complete THE HARP CHECK at Cave Magnes.</li>
+    <li>Setting THE HARP CHECK mode will force Oreq:all.</li>
+    <li>WARNING: This flagset may result in an unwinnable seed.  I don't play nice.  Always fade the harp.</li>
+</ul>
+
 [Orandom:tough_quest]
 Refers only to the more difficult, later-game quest objectives.
 
@@ -27,13 +34,22 @@ Complete the required number of objectives to get the Crystal, then defeat Zerom
     <li>Duplicate objectives will be omitted.</li>
     <li>A character objective is met when the requirements to gain the character have been fulfilled; you do not need to actually add them to your party.</li>
     <li>Starting characters do not count towards character objectives.</li>
-    <li>Setting the Pass quest objective with no other P flags will force Pkey to be enabled.</li>
+    <li>Setting the Pass quest objective with no other P flags will force Pchests to be enabled.</li>
+</ul>
+
+[Kvanilla}
+<ul>
+    <li>Note: The key item check at Cave Magnes has been reassigned to Rydia's Mom and gated by D.Mist.</li>
+    <li>The Knofree is disabled in FF4FE Perfected.</li>
 </ul>
 
 [Kmain]
-The locations of key items are shuffled amongst each other. For example, you may find the Magma Key in the Antlion's Nest instead of the Sandruby.
-
-The items randomized this way are the <em>Package, SandRuby, Legend Sword, Baron Key, TwinHarp, Earth Crystal, Magma Key, Tower Key, Airship Hook, Luca Key, Dark Crystal, Pink Tail, Rat Tail, Pan, Spoon, Adamant,</em> and the <em>Crystal used to transform Zeromus</em> (yes, you have to find it.)
+<ul>
+    <li>The locations of key items are shuffled amongst each other. For example, you may find the Magma Key in the Antlion's Nest instead of the Sandruby.</li>
+    <li>The items randomized this way are the <em>Package, SandRuby, Legend Sword, Baron Key, TwinHarp, Earth Crystal, Magma Key, Tower Key, Airship Hook, Luca Key, Dark Crystal, Pink Tail, Rat Tail, Pan, Spoon, Adamant,</em> and the <em>Crystal used to transform Zeromus</em> (yes, you have to find it.)</li>
+    <li>Note: The key item check at Cave Magnes has been reassigned to Rydia's Mom and gated by D.Mist.</li>
+    <li>The Knofree is disabled in FF4FE Perfected.</li>
+</ul>
 
 [Ksummon]
 Key items may be awarded by the Sylphs, the king and queen of the Feymarch, Odin's throne, and Cave Bahamut.
@@ -43,9 +59,6 @@ Key items may be awarded by the bosses of the Lunar Subterrane.
 
 [Kmiab]
 This excludes monster-in-a-box chests in the Lunar Subterrane, unless also using Kmoon or Kunsafe.
-
-[Knofree]
-Edward in Toroia will not give you a key item. Instead, a key item may be earned from Rydia's mom in Mist, who will appear after you have found and defeated the Mist Dragon.
 
 [Kforce:magma]
 You are guaranteed that there is a path to the underworld via the Magma Key, without needing to use the Hook route through Cave Eblan.
