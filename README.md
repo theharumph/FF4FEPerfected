@@ -4,6 +4,25 @@ This is a fork of the open-source version of Free Enterprise 4.x.  Logic has bee
 
 This will be messy, as I have no idea what I'm doing.
 
+## Hopes and Dreams
+
+Currently working on some gameplay and logic changes.
+
+- Removing Cave Magnes from KI pool entirely, replacing it with Rydia's Mom.  Knofree is removed as a result.
+- Safeguard the FreeEn channel by removing Adamant Armor from Pink Puff drop table.
+- Removing Pkey.  Don't worry, it can still be had on Pnone.  **puff puff pass**
+- Removing corner case scenarios (D.Mist at Rubi gating Magma Key on force:hook, Odin gating Magma as sole underground access on Bvanilla)
+
+Here is what I would like to try to implement:
+
+- Omode:harp
+- More terrible and not terrible harp music and maybe some new versions of classics.  Provisions for -harp:vanilla and -harp:safe are planned (naming is tentative)
+- New Z-sprites
+- Meaner monsters in Magnes
+- Options for FF4J and FF4 Easytype monster stats and scripts.  
+
+Super long-term goals would include transforming Cave Magnes into an overly impossible dungeon.
+
 ## Setup
 
 Instructions at the main FreeEnterprise4 github.
