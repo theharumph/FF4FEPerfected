@@ -182,9 +182,9 @@ event($10)  //Opening events
         pause 2
         player face down
         // %if wacky_challenge_enabled%
-        music #FatChocobo
+        music #BlackChocobo
         // %else%
-        music #Prologue
+        music #Opening
         // %end%
         batch {
             p #Baigan face right
