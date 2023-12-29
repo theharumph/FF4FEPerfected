@@ -666,13 +666,13 @@ def build(romfile, options, force_recompile=False):
     # hack: add a block area to insert default names in rescript.py
     env.add_scripts('// [[[ NAMES START ]]]\n// [[[ NAMES END ]]]')
 
-    if options.flags.has('no_free_key_item'):
-        env.add_file('scripts/rydias_mom_slot.f4c')
+    # if options.flags.has('no_free_key_item'):
+    #    env.add_file('scripts/rydias_mom_slot.f4c')
 
-    if options.flags.has('no_free_bosses'):
-        env.add_substitution('free boss', '')
-    else:
-        env.add_substitution('no free boss', '')
+    # if options.flags.has('no_free_bosses'):
+    #    env.add_substitution('free boss', '')
+    # else:
+    #    env.add_substitution('no free boss', '')
 
     if options.flags.has('shops_free'):
         env.add_file('scripts/free_items.f4c')
