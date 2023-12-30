@@ -299,7 +299,7 @@ harumph: PREPARE TO DIE!
 }
 
 text(map #CaveMagnes1F message $00) {
-Magnetic field in effect.
+TURN AROUND AND LEAVE NOW!
 }
 
 // "Erase" Cid NPC in Magnes crystal room
