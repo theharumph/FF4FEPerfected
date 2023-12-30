@@ -245,7 +245,7 @@ BOSS_SLOTS = {
     'guard_slot'            : [],
     'baigan_slot'           : ['#item.Baron?'],
     'kainazzo_slot'         : ['#item.Baron?', 'baigan_slot'],
-    'magus_slot'            : ['#item.Twinharp?], [#item.fe_Hook'],
+    'magus_slot'            : [],
     'valvalis_slot'         : ['#item.EarthCrystal?', 'magus_slot'],
     'calbrena_slot'         : ['underground?'],
     'golbez_slot'           : ['underground?', 'calbrena_slot'],
