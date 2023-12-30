@@ -298,6 +298,15 @@ text(map #CaveMagnesCrystalRoom message $00) {
 harumph: PREPARE TO DIE!
 }
 
+text(map #CaveMagnesCrystalRoom message $02) {
+Sealed by harumph.
+}
+
+text(map #CaveMagnesCrystalRoom message $03) {
+harumphs_
+YOU_ FOOLS_!
+}
+
 text(map #CaveMagnes1F message $00) {
 TURN AROUND AND LEAVE NOW!
 }
