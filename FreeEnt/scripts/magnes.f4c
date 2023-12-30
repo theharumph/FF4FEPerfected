@@ -284,7 +284,7 @@ harumph: YOU CANNOT GO
  YOU CANNOT DEFEAT ME.
 }
 
-text(bank 1 message $DE) {
+text(bank 1 message $E0) {
 [harp]TwinHarp made a sound
 synchronizing the tune
 played by [Edward]!
@@ -294,6 +294,12 @@ harumph: WHAT!?  WHAT IS
  U-Ugh!
 }
 
+text(bank 1 message $DF) {
+harumph: THE HARP CARTEL_
+ MUST_ NOT_ SURVIVE_
+ I WILL HAVE MY REVENGE_
+ harumph_
+}
 text(map #CaveMagnesCrystalRoom message $00) {
 harumph: PREPARE TO DIE!
 }
@@ -332,11 +338,11 @@ ai_script($AA)
     
     message $09   // "DarkElf:ME ATTACK YOU!"
     chain {
+        use #Toad on group
+        
         use #Virus on group
         
         use #Quake on group
-        
-        use #Weak on group
     }
     
     use #Meteo on group
@@ -345,6 +351,72 @@ ai_script($AA)
     use #EndBattle
 }
 
+ai_script($AB)
+{
+    message $2C   // "harumph: THIS IS THE END!"
+    fight
+    
+    fight
+    
+    fight
+    
+    fight
+    
+    fight
+    
+    fight
+    
+    use #Meteo on group
+}
+
+ai_script($AC)
+{
+    chain {
+        use #Toad on group
+        
+        use #Virus on group
+        
+        use #Quake on group
+    }
+    
+    use #Enemy_Globe199
+    
+    use #Enemy_Whisper
+}
+
+ai_script($AD)
+{
+    chain {
+        message $0D   // "DarkElf:ME CHANGE!"
+        pass
+        
+        music #Zeromus
+
+        use #Enemy_Storm
+        
+        use #Transform3
+    }
+}
+
+ai_script($AE)
+{
+    fight
+    
+    use #Enemy_HeatRay
+}
+
+text(battle message $09) {
+harumph: TIME FOR PAIN!
+}
+
 text(battle message $0B) {
 We can't_
 }
+
+text(battle message $0D) {
+harumph: YOU DONE MESSED UP!
+}
+
+text(monster name $AB) {harumph}
+text(monster name $AC) {harumph}
+text(monster name $C3) {harumph}
