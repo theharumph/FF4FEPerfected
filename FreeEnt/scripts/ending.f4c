@@ -613,216 +613,216 @@ patch($13D624 bus) { 0D }
 
 
 text($22d800 bus) {
-~~~~~FINAL FANTASY IV~~STAFF~~~~
+~~~~FINAL FANTASY IV~STAFF~~~~
 
 
 
-~~~~~~~~~~~~~~~~~~~~~~~~DIRECTOR
 
-~~~~~~~~~~~~~~Hironobu Sakaguchi
+~~~~~~~~~~~~~~~~~~~~~~DIRECTOR
+~~~~~~~~~~~~Hironobu Sakaguchi
 
 
 
-CHARACTER DESIGN
 
-Yoshitaka Amano
+~~CHARACTER DESIGN
+~~Yoshitaka Amano
 
 
 
-~~~~~~~~~~~~~~~~~MUSIC COMPOSER
 
-~~~~~~~~~~~~~~~~~~Nobuo Uematsu
+~~~~~~~~~~~~~~~MUSIC COMPOSER
+~~~~~~~~~~~~~~~~Nobuo Uematsu
 
 
 
-MAIN DESIGN
 
-Takashi Tokita
+~~MAIN DESIGN
+~~Takashi Tokita
 
 
 
-~~~~~~~~~~~~~~~~~~~MAIN PROGRAM
 
-~~~~~~~~~~~~~~~~~~~~~Ken Narita
+~~~~~~~~~~~~~~~~~MAIN PROGRAM
+~~~~~~~~~~~~~~~~~~~Ken Narita
 
 
 
-MAIN GRAPHIC
 
-Hiromi Tanaka
+~~MAIN GRAPHIC
+~~Hiromi Tanaka
+~~Ryoku Tanaka
 
-Ryoku Tanaka
 
 
 
-~~~~~~~~~~~~~~~~~~~~~MAP DESIGN
+~~~~~~~~~~~~~~~~~~~MAP DESIGN
+~~~~~~~~~~~~Yasushi Matsumara
 
-~~~~~~~~~~~~~~Yasushi Matsumara
 
 
 
-BATTLE DESIGN
+~~BATTLE DESIGN
+~~Kazuhiko Aoki
+~~Hiroyuki Ito
+~~Akihiko Matsui
 
-Kazuhiko Aoki
 
-Hiroyuki Ito
 
-Akihiko Matsui
 
+~~~~~~~~~~~~~~~BATTLE PROGRAM
+~~~~~~~~~~~~~~~Kiyoshi Yoshii
+~~~~~~~~~~~~Katsuhisa Higuchi
 
 
-~~~~~~~~~~~~~~~~~BATTLE PROGRAM
 
-~~~~~~~~~~~~~~~~~Kiyoshi Yoshii
 
-~~~~~~~~~~~~~~Katsuhisa Higuchi
+~~BATTLE GRAPHIC
+~~Tetsuya Takahashi
+~~Masahori Hoshino
 
 
 
-BATTLE GRAPHIC
 
-Tetsuya Takahashi
+~~~~~~~~~~~~~~~~~MENU PROGRAM
+~~~~~~~~~~~~~~~Keitaro Adachi
 
-Masahori Hoshino
 
 
 
-~~~~~~~~~~~~~~~~~~~MENU PROGRAM
+~~MUSIC PROGRAM
+~~Minoru Akao
 
-~~~~~~~~~~~~~~~~~Keitaro Adachi
 
 
 
-MUSIC PROGRAM
+~~~~~~~~~~~~~~~~~SOUND EFFECT
+~~~~~~~~~~~~~~~~~~~~Kenji Ito
+~~~~~~~~~~~~~~~~~~~Akira Ueda
 
-Minoru Akao
 
 
 
-~~~~~~~~~~~~~~~~~~~SOUND EFFECT
+~~TRANSLATION
+~~Kaoru Moriyama
+~~K`Okahisa
+~~H`Takahashi
 
-~~~~~~~~~~~~~~~~~~~~~~Kenji Ito
 
-~~~~~~~~~~~~~~~~~~~~~Akira Ueda
 
 
+~~~~~~~~~~~EXECUTIVE PRODUCER
+~~~~~~~~~~~~Masafumi Miyamoto
 
-TRANSLATION
 
-Kaoru Moriyama
 
-K`Okahisa
 
-H`Takahashi
+~~SPECIAL THANKS TO ```
 
+~~Akira Saito
+~~D`R` Cloutier
+~~Rich Silveira
+~~Junichi Yanagihara
+~~D`R` Garza
+~~Chris Budd
+~~V`A` Mayhew
+~~K`M` Fredrickson
+~~K`E` Kirchner
+~~Nathan Williams
 
+~~Kyoji Koizumi
+~~Ikuya Dobashi
+~~S` Tanaka
+~~Tetsuya Nomura
+~~Yasuhiko Kamata
 
-~~~~~~~~~~~~~EXECUTIVE PRODUCER
+~~Hiromichi Tanaka
+~~Akitoshi Kawazu
+~~Koichi Ishii
+~~Kazuko Shibuya
+~~Takeshi Endo
+~~T` Takahashi
+~~Shinichi Kameoka
 
-~~~~~~~~~~~~~~Masafumi Miyamoto
+~~Hitoshi Takemura
+~~Hisashi Suzuki
+~~H` Kobayashi
+~~Tetsuo Mizuno
+~~Tomoyuki Takechi
 
+~~Tomoki Anazawa
+~~Keizo Kokubo
+~~Toshiyoki Inoue
+~~Nobuyuki Inoue
+~~Hiromi Ito
+~~Yoshinori Kitase
+~~Goro Ohashi
+~~Satoru Yoshieda
+~~Masaaki Saito
+~~Hiroshi Takai
+~~Manabu Daishima
 
+~~T` Suzuki
+~~S` Sano
+~~N` Goto
 
-SPECIAL THANKS TO ```
 
-Akira Saito
-D`R` Cloutier
-Rich Silveira
-Junichi Yanagihara
-D`R` Garza
-Chris Budd
-V`A` Mayhew
-K`M` Fredrickson
-K`E` Kirchner
-Nathan Williams
 
-Kyoji Koizumi
-Ikuya Dobashi
-S` Tanaka
-Tetsuya Nomura
-Yasuhiko Kamata
 
-Hiromichi Tanaka
-Akitoshi Kawazu
-Koichi Ishii
-Kazuko Shibuya
-Takeshi Endo
-T` Takahashi
-Shinichi Kameoka
 
-Hitoshi Takemura
-Hisashi Suzuki
-H` Kobayashi
-Tetsuo Mizuno
-Tomoyuki Takechi
 
-Tomoki Anazawa
-Keizo Kokubo
-Toshiyoki Inoue
-Nobuyuki Inoue
-Hiromi Ito
-Yoshinori Kitase
-Goro Ohashi
-Satoru Yoshieda
-Masaaki Saito
-Hiroshi Takai
-Manabu Daishima
 
-T` Suzuki
-S` Sano
-N` Goto
 
 
+~~FF4FE PERFECTED
 
+~~Created by harumph
 
 
-FF4FE PERFECTED
 
-Created by harumph
 
 
 
 
 
-~~~~~~~~~~~~~~~~~~~~~~~BASED ON
 
-~~~~~~~~~~~~~~~Final Fantasy IV
-~~~~~~~~~~~~~~~~Free Enterprise
-~~~~~~~~~~~~~~~~~~~~~~ff4fe`com
 
+~~~~~~~~~~~~~~~~~~~~~BASED ON
+~~~~~~~~~~~~~Final Fantasy IV
+~~~~~~~~~~~~~~Free Enterprise
+~~~~~~~~~~~~~~~~~~~~ff4fe`com
 
-FREE ENTERPRISE DEV TEAM
 
-b0ardface
 
-MXZV
+~~FREE ENTERPRISE DEV TEAM
+~~b0ardface
+~~mxzv
+~~Wylem
+~~riversmccown
+~~SchalaKitty
+~~Calmlamity
+~~Xenocat
 
-Wylem
 
-riversmccown
 
-SchalaKitty
+~~~~additional programming by
+~~~~~~~~~~~~~~~~~~~~~~~~~Crow
+~~~~~~~~~~~~~~~~~~~~Myself086
+~~~~~~~~~~~~~~~~~~CassidyMoen
 
-Calmlamity
 
-Xenocat
 
 
-~~~~~~additional programming by
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~Crow
-~~~~~~~~~~~~~~~~~~~~~~Myself086
-~~~~~~~~~~~~~~~~~~~~CassidyMoen
 
 
 
 
-
-
-
-~~~~Always fade the TwinHarp`
+~~Always fade the TwinHarp`
 
 {% vintage shoutout : %}
+
+
+
 
 
 
