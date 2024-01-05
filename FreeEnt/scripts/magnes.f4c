@@ -271,7 +271,7 @@ event($74)  //Obtaining the Earth Crystal
     music #Prelude
     [#B #Objectives_TickRewardSlot #reward_slot.magnes_item]
     [#B #Rando_DeliverRewardFromSlot #reward_slot.magnes_item]
-    [#B #Objectives_Tick #objective.quest_magnes]
+    [#B #Objectives_Tick #objective.internal_magnes]
 }
 
 text(bank 1 message $DB) {
