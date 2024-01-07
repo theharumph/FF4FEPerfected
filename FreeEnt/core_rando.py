@@ -476,8 +476,8 @@ def apply(env):
     #  if env.options.flags.has('pass_in_key_items'):
     #  keyitem_assigner.item_tier(1).append(ItemReward('#item.Pass'))
 
-    ## Deprecated no_magma code, preserving in case of future implementation.
-    # if env.options.flags.has('key_items_no_magma'):
+    #  Deprecated no_magma code, preserving in case of future implementation.
+    #  if env.options.flags.has('key_items_no_magma'):
     #     keyitem_assigner.item_tier(1).remove(KeyItemReward('#item.Magma'))
     #     layout = '"Package  SandRuby   [lightsword]Legend"      [[ 01 ]]\n        "[key]Baron   [harp]TwinHarp  [crystal]Earth" [[ 01 ]]\n        "         [key]Tower     Hook"            [[ 01 ]]\n        "[key]Luca    [crystal]Darkness  [tail]Rat"   [[ 01 ]]\n        "Adamant  Pan        [knife]Spoon"            [[ 01 ]]\n        "[tail]Pink    [crystal]Crystal"              [[ 00 ]]'
     #     env.add_substitution('tracker layout', layout)
@@ -506,7 +506,8 @@ def apply(env):
         if env.options.flags.has('key_items_vanilla'):
             # vanilla assignment
             rewards_assignment[RewardSlot.fabul_item] = ItemReward('#item.BlackSword')
-            rewards_assignment[RewardSlot.baron_castle_item] = (ItemReward('#item.Pass') # <commented out as no Pkey> if env.options.flags.has('pass_in_key_items') else EmptyReward())
+            rewards_assignment[RewardSlot.baron_castle_item] = ItemReward('#item.Pass') 
+            # <commented out as no Pkey> if env.options.flags.has('pass_in_key_items') else EmptyReward())
 
             used_keyitems = set()
             for item in ESSENTIAL_KEY_ITEMS:
