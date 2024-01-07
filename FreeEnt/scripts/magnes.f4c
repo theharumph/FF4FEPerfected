@@ -271,7 +271,7 @@ event($74)  //Obtaining the Earth Crystal
     music #Prelude
     [#B #Objectives_TickRewardSlot #reward_slot.magnes_item]
     [#B #Rando_DeliverRewardFromSlot #reward_slot.magnes_item]
-    [#B #Objectives_Tick #objective.internal_magnes]
+    [#B #Objectives_Tick #objective.quest_magnes]
 }
 
 text(bank 1 message $DB) {
@@ -284,7 +284,7 @@ harumph: YOU CANNOT GO
  YOU CANNOT DEFEAT ME.
 }
 
-text(bank 1 message $E0) {
+text(bank 1 message $DE) {
 [harp]TwinHarp made a sound
 synchronizing the tune
 played by [Edward]!
@@ -294,12 +294,20 @@ harumph: WHAT!?  WHAT IS
  U-Ugh!
 }
 
-text(bank 1 message $DF) {
+
+
+text(bank 1 message $E0) {
 harumph: THE HARP CARTEL_
  MUST_ NOT_ SURVIVE_
  I WILL HAVE MY REVENGE_
  harumph_
 }
+
+text(map name $47) {
+THE HARP CHECK
+}
+
+
 text(map #CaveMagnesCrystalRoom message $00) {
 harumph: PREPARE TO DIE!
 }
@@ -338,14 +346,14 @@ ai_script($AA)
     
     message $09   // "DarkElf:ME ATTACK YOU!"
     chain {
-        use #Toad on group
+        use #Enemy_Fire
         
-        use #Virus on group
+        use #Enemy_BigWave
         
-        use #Quake on group
+        use #Enemy_Blaze
     }
     
-    use #Meteo on group
+    use #Enemy_BigBang
     
     message $0B   // "[Cecil]:We can't_"
     use #EndBattle
@@ -364,24 +372,24 @@ ai_script($AB)
     
     fight
     
-    fight
-    
-    use #Meteo on group
+    target all characters
+
+    use #Meteo
 }
 
 ai_script($AC)
 {
     chain {
-        use #Toad on group
+        use #Enemy_Fire
         
-        use #Virus on group
+        use #Enemy_BigWave
         
-        use #Quake on group
+        use #Enemy_Blaze
     }
     
-    use #Enemy_Globe199
-    
-    use #Enemy_Whisper
+    use #Enemy_BigBang
+
+    use #Meteo 
 }
 
 ai_script($AD)
@@ -391,8 +399,7 @@ ai_script($AD)
         pass
         
         music #Zeromus
-
-        use #Enemy_Storm
+        pass
         
         use #Transform3
     }
@@ -402,11 +409,11 @@ ai_script($AE)
 {
     fight
     
-    use #Enemy_HeatRay
+    use #Enemy_Globe199
 }
 
 text(battle message $09) {
-harumph: TIME FOR PAIN!
+harumph:TIME FOR PAIN!
 }
 
 text(battle message $0B) {
@@ -414,9 +421,87 @@ We can't_
 }
 
 text(battle message $0D) {
-harumph: YOU DONE MESSED UP!
+harumph:NOW YOU SUFFER!
+}
+
+text(battle message $2c) {
+harumph:THIS IS THE END!
 }
 
 text(monster name $AB) {harumph}
 text(monster name $AC) {harumph}
 text(monster name $C3) {harumph}
+
+monster($AB)   // Dark Elf
+{
+    boss
+    level 99
+    hp 65000
+    gp 0
+    xp 0
+    attack index $DF         // (99, 99, 254)
+    defense index $60        // (0, 0, 0)
+    magic defense index $DF  // (99, 99, 254)
+    speed index $31          // (31, 31)
+    drop index $00
+    drop rate $00
+    attack sequence $9F
+    spell power 57
+    gfx {
+        size $97
+        palette $AB
+        pointer $A834
+    }
+}
+
+monster($AC)   // Dark Elf
+{
+    boss
+    level 99
+    hp 65000
+    gp 0
+    xp 0
+    attack index $00         // (1, 75, 18)
+    defense index $60        // (0, 0, 0)
+    magic defense index $DF  // (99, 99, 254)
+    speed index $32          // (9, 9)
+    drop index $00
+    drop rate $00
+    attack sequence $A0
+    weak element #Holy #Immune
+    spell power 1
+    reaction sequence $A1
+    gfx {
+        size $97
+        palette $AB
+        pointer $A834
+    }
+}
+
+monster($C3)   // Dark Elf
+{
+    boss
+    level 19
+    hp 65000
+    gp 0
+    xp 0
+    attack index $1F         // (4, 99, 54)
+    defense index $63        // (0, 0, 3)
+    magic defense index $DF  // (99, 99, 254)
+    speed index $38          // (11, 11)
+    drop index $00
+    drop rate $00
+    attack sequence $A2
+    resist element #Holy #Absorb
+    resist status #Blind #Mute #Piggy #Mini #Toad #Stone #Swoon #Calcify1 #Calcify2 #Berserk #Charm #Sleep #Stun #Float #Curse
+    weak element #Holy #Immune
+    spell power 15
+    race #Dragon
+    gfx {
+        size $07
+        palette $C3
+        pointer $96A8
+    }
+}
+
+
