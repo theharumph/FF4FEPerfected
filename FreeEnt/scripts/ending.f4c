@@ -539,7 +539,7 @@ text($21d500 bus) {
 
 
 ~~~Final Fantasy IV
-~~~~Free Enterprise
+~~~~FF4FE Perfected
 
 // %ending_version%
 ~~~~~~~~v0.1.0
@@ -613,19 +613,16 @@ patch($13D624 bus) { 0D }
 
 
 text($22d800 bus) {
-~~~~FINAL FANTASY IV~STAFF~~~~
-
-
-
-
+~~~
+~~~
 ~~~~~~~~~~~~~~~~~~~~~~DIRECTOR
 ~~~~~~~~~~~~Hironobu Sakaguchi
 
 
 
 
-~~CHARACTER DESIGN
-~~Yoshitaka Amano
+~~~CHARACTER DESIGN
+~~~Yoshitaka Amano
 
 
 
@@ -636,8 +633,8 @@ text($22d800 bus) {
 
 
 
-~~MAIN DESIGN
-~~Takashi Tokita
+~~~MAIN DESIGN
+~~~Takashi Tokita
 
 
 
@@ -648,9 +645,9 @@ text($22d800 bus) {
 
 
 
-~~MAIN GRAPHIC
-~~Hiromi Tanaka
-~~Ryoku Tanaka
+~~~MAIN GRAPHIC
+~~~Hiromi Tanaka
+~~~Ryoku Tanaka
 
 
 
@@ -661,10 +658,10 @@ text($22d800 bus) {
 
 
 
-~~BATTLE DESIGN
-~~Kazuhiko Aoki
-~~Hiroyuki Ito
-~~Akihiko Matsui
+~~~BATTLE DESIGN
+~~~Kazuhiko Aoki
+~~~Hiroyuki Ito
+~~~Akihiko Matsui
 
 
 
@@ -676,9 +673,9 @@ text($22d800 bus) {
 
 
 
-~~BATTLE GRAPHIC
-~~Tetsuya Takahashi
-~~Masahori Hoshino
+~~~BATTLE GRAPHIC
+~~~Tetsuya Takahashi
+~~~Masahori Hoshino
 
 
 
@@ -689,8 +686,8 @@ text($22d800 bus) {
 
 
 
-~~MUSIC PROGRAM
-~~Minoru Akao
+~~~MUSIC PROGRAM
+~~~Minoru Akao
 
 
 
@@ -702,10 +699,10 @@ text($22d800 bus) {
 
 
 
-~~TRANSLATION
-~~Kaoru Moriyama
-~~K`Okahisa
-~~H`Takahashi
+~~~TRANSLATION
+~~~Kaoru Moriyama
+~~~K`Okahisa
+~~~H`Takahashi
 
 
 
@@ -716,56 +713,54 @@ text($22d800 bus) {
 
 
 
-~~SPECIAL THANKS TO ```
+~~~SPECIAL THANKS TO```
 
-~~Akira Saito
-~~D`R` Cloutier
-~~Rich Silveira
-~~Junichi Yanagihara
-~~D`R` Garza
-~~Chris Budd
-~~V`A` Mayhew
-~~K`M` Fredrickson
-~~K`E` Kirchner
-~~Nathan Williams
+~~~Akira Saito
+~~~D`R` Cloutier
+~~~Rich Silveira
+~~~Junichi Yanagihara
+~~~D`R` Garza
+~~~Chris Budd
+~~~V`A` Mayhew
+~~~K`M` Fredrickson
+~~~K`E` Kirchner
+~~~Nathan Williams
 
-~~Kyoji Koizumi
-~~Ikuya Dobashi
-~~S` Tanaka
-~~Tetsuya Nomura
-~~Yasuhiko Kamata
+~~~Kyoji Koizumi
+~~~Ikuya Dobashi
+~~~S` Tanaka
+~~~Tetsuya Nomura
+~~~Yasuhiko Kamata
 
-~~Hiromichi Tanaka
-~~Akitoshi Kawazu
-~~Koichi Ishii
-~~Kazuko Shibuya
-~~Takeshi Endo
-~~T` Takahashi
-~~Shinichi Kameoka
+~~~Hiromichi Tanaka
+~~~Akitoshi Kawazu
+~~~Koichi Ishii
+~~~Kazuko Shibuya
+~~~Takeshi Endo
+~~~T` Takahashi
+~~~Shinichi Kameoka
 
-~~Hitoshi Takemura
-~~Hisashi Suzuki
-~~H` Kobayashi
-~~Tetsuo Mizuno
-~~Tomoyuki Takechi
+~~~Hitoshi Takemura
+~~~Hisashi Suzuki
+~~~H` Kobayashi
+~~~Tetsuo Mizuno
+~~~Tomoyuki Takechi
 
-~~Tomoki Anazawa
-~~Keizo Kokubo
-~~Toshiyoki Inoue
-~~Nobuyuki Inoue
-~~Hiromi Ito
-~~Yoshinori Kitase
-~~Goro Ohashi
-~~Satoru Yoshieda
-~~Masaaki Saito
-~~Hiroshi Takai
-~~Manabu Daishima
+~~~Tomoki Anazawa
+~~~Keizo Kokubo
+~~~Toshiyoki Inoue
+~~~Nobuyuki Inoue
+~~~Hiromi Ito
+~~~Yoshinori Kitase
+~~~Goro Ohashi
+~~~Satoru Yoshieda
+~~~Masaaki Saito
+~~~Hiroshi Takai
+~~~Manabu Daishima
 
-~~T` Suzuki
-~~S` Sano
-~~N` Goto
-
-
+~~~T` Suzuki
+~~~S` Sano
+~~~N` Goto
 
 
 
@@ -773,9 +768,13 @@ text($22d800 bus) {
 
 
 
-~~FF4FE PERFECTED
 
-~~Created by harumph
+
+
+~~~FF4FE PERFECTED
+
+~~~Created by harumph
+
 
 
 
@@ -793,14 +792,14 @@ text($22d800 bus) {
 
 
 
-~~FREE ENTERPRISE DEV TEAM
-~~b0ardface
-~~mxzv
-~~Wylem
-~~riversmccown
-~~SchalaKitty
-~~Calmlamity
-~~Xenocat
+~~~FREE ENTERPRISE DEV
+~~~b0ardface
+~~~mxzv
+~~~Wylem
+~~~riversmccown
+~~~SchalaKitty
+~~~Calmlamity
+~~~Xenocat
 
 
 
@@ -817,9 +816,10 @@ text($22d800 bus) {
 
 
 
-~~Always fade the TwinHarp`
+~~~Always fade the TwinHarp`
 
 {% vintage shoutout : %}
+
 
 
 
