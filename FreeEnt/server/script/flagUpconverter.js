@@ -83,7 +83,7 @@ function upconvertBinaryFlags(binaryFlagStr)
 
     let version = b64decode(binaryFlagStr.substr(1, 4));
 
-    if (compareVersions(version, [4, 0, 0]) < 0)
+    if (compareVersions(version, [4, 6, 1]) < 0)
     {
         throw new Error('Cannot upgrade binary flag strings from before version 4.0.0.');
     }

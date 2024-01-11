@@ -12,11 +12,11 @@ BOSS_SLOTS = list(core_rando.BOSS_SLOTS)
 BOSSES = list(core_rando.BOSSES)
 
 SLOTS_WITH_BOSS_DEATH = [
-    'milonz_slot', 'kainazzo_slot', 'valvalis_slot', 'rubicant_slot', 'elements_slot'
+    'milonz_slot', 'kainazzo_slot', 'darkelf_slot', 'valvalis_slot', 'rubicant_slot', 'elements_slot'
     ]
 
 SLOTS_WITH_BACK_ATTACK = [
-    'milonz_slot'
+    'milonz_slot', 'darkelf_slot'
     ]
 
 SLOTS_WITH_SPECIAL_MUSIC = {
@@ -345,7 +345,7 @@ SLOT_PALETTE_PRESERVATIONS = {
         },
     'darkelf_slot' : {
         'crystal' : [2, 0x00, 2],
-        'darkelf' : [2, 0x00, 1],
+        'darkelf' : [2, 0x04, 1],
         'harp' : [2, 
             [0x00,0x00,0xff,0x7f,0x9f,0x1f,0x18,0x53,0x31,0x3e,0xad,0x31,0x9e,0x0d,0x08,0x19],
             0],
@@ -388,7 +388,7 @@ SLOT_PALETTE_PRESERVATIONS = {
         }
 }
 
-BOSS_SPOILER_NAMESLOT = {
+BOSS_SPOILER_NAMES = {
     'dmist' : 'D.Mist',
     'officer' : 'Kaipo Officer/Soldiers',
     'octomamm' : 'Octomamm',
@@ -403,7 +403,7 @@ BOSS_SPOILER_NAMESLOT = {
     'karate' : 'Karate',
     'baigan' : 'Baigan',
     'kainazzo' : 'Kainazzo',
-    'darkelf' : 'Dark Elf',
+    'darkelf' : 'REDACTED',
     'magus' : 'Magus Sisters',
     'valvalis' : 'Valvalis',
     'calbrena' : 'Calbrena',
@@ -426,45 +426,7 @@ BOSS_SPOILER_NAMESLOT = {
     'ogopogo' : 'Ogopogo',
 }
 
-BOSS_SPOILER_NAMES = {
-    'dmist' : 'D.Mist',
-    'officer' : 'Kaipo Officer/Soldiers',
-    'octomamm' : 'Octomamm',
-    'antlion' : 'Antlion',
-    'waterhag' : 'WaterHag',
-    'mombomb' : 'MomBomb',
-    'fabulgauntlet' : 'Fabul Gauntlet',
-    'milon' : 'Milon',
-    'milonz' : 'Milon Z.',
-    'mirrorcecil' : 'D.Knight',
-    'guard' : 'Baron Inn Guards',
-    'karate' : 'Karate',
-    'baigan' : 'Baigan',
-    'kainazzo' : 'Kainazzo',
-    'darkelf' : 'REDACTED - h :)',
-    'magus' : 'Magus Sisters',
-    'valvalis' : 'Valvalis',
-    'calbrena' : 'Calbrena',
-    'golbez' : 'Golbez',
-    'lugae' : 'Lugae',
-    'darkimp' : 'Dark Imps',
-    'kingqueen' : 'King/Queen Eblan',
-    'rubicant' : 'Rubicant',
-    'evilwall' : 'EvilWall',
-    'asura' : 'Asura',
-    'leviatan' : 'Leviatan',
-    'odin' : 'Odin',
-    'bahamut' : 'Bahamut',
-    'elements' : 'Elements',
-    'cpu' : 'CPU',
-    'paledim' : 'Pale Dim',
-    'wyvern' : 'Wyvern',
-    'plague' : 'Plague',
-    'dlunar' : 'D.Lunars',
-    'ogopogo' : 'Ogopogo',
-}
-
-BOSS_SLOT_SPOILER_NAMES = { f"{b}_slot": BOSS_SPOILER_NAMESLOT[b] + " position" for b in BOSS_SPOILER_NAMESLOT }
+BOSS_SLOT_SPOILER_NAMES = { f"{b}_slot": BOSS_SPOILER_NAMES[b] + " position" for b in BOSS_SPOILER_NAMES }
 
 ALT_GAUNTLETS = {
     'dmist_slot' : [0x07, 0x05, 0x08, 0xD0, 0xD1],
@@ -965,13 +927,10 @@ def apply(env):
     # generate spoiler
     boss_spoilers = []
     missing_bosses = set(BOSSES)
-
-    
     for slot in assignment:
         boss = assignment[slot]
         missing_bosses.remove(boss)
         boss_spoilers.append( SpoilerRow(BOSS_SLOT_SPOILER_NAMES[slot], BOSS_SPOILER_NAMES[boss], obscurable=True) )
-
     for boss in missing_bosses:
         boss_spoilers.append( SpoilerRow("(not available)", BOSS_SPOILER_NAMES[boss], obscurable=True) )
     env.spoilers.add_table("BOSSES", boss_spoilers, public=env.options.flags.has_any('-spoil:all', '-spoil:bosses'))

@@ -16,7 +16,7 @@ Defeat Milon, Milon Z., Kainazzo, Valvalis, Rubicant, and Elements to complete t
 [Omode:harp]
 <ul>
     <li>Complete THE HARP CHECK at Cave Magnes.</li>
-    <li>Setting THE HARP CHECK mode will force Oreq:all.</li>
+    <li>Setting THE HARP CHECK mode will force Oreq:all and Owin:crystal.</li>
     <li>WARNING: This flagset may result in an unwinnable seed.  I don't play nice.  Always fade the harp.</li>
 </ul>
 
@@ -37,10 +37,10 @@ Complete the required number of objectives to get the Crystal, then defeat Zerom
     <li>Setting the Pass quest objective with no other P flags will force Pchests to be enabled.</li>
 </ul>
 
-[Kvanilla}
+[Kvanilla]
 <ul>
     <li>Note: The key item check at Cave Magnes has been reassigned to Rydia's Mom and gated by D.Mist.</li>
-    <li>The Knofree is disabled in FF4FE Perfected.</li>
+    <li>The Knofree flag is disabled in FF4FE Perfected.</li>
 </ul>
 
 [Kmain]
@@ -48,7 +48,7 @@ Complete the required number of objectives to get the Crystal, then defeat Zerom
     <li>The locations of key items are shuffled amongst each other. For example, you may find the Magma Key in the Antlion's Nest instead of the Sandruby.</li>
     <li>The items randomized this way are the <em>Package, SandRuby, Legend Sword, Baron Key, TwinHarp, Earth Crystal, Magma Key, Tower Key, Airship Hook, Luca Key, Dark Crystal, Pink Tail, Rat Tail, Pan, Spoon, Adamant,</em> and the <em>Crystal used to transform Zeromus</em> (yes, you have to find it.)</li>
     <li>Note: The key item check at Cave Magnes has been reassigned to Rydia's Mom and gated by D.Mist.</li>
-    <li>The Knofree is disabled in FF4FE Perfected.</li>
+    <li>The Knofree flag is disabled in FF4FE Perfected.</li>
 </ul>
 
 [Ksummon]

@@ -96,27 +96,6 @@ ITEM_SLOTS = {
     RewardSlot.rydias_mom_item        : ['dmist?'],
     }
 
-ALL_ITEM_SLOTS = {
-    RewardSlot.starting_item          : [],
-    RewardSlot.antlion_item           : ['antlion_slot'],
-    RewardSlot.fabul_item             : ['fabulgauntlet_slot'],
-    RewardSlot.ordeals_item           : ['milon_slot', 'milonz_slot', 'mirrorcecil_slot'],
-    RewardSlot.baron_inn_item         : ['guard_slot', 'karate_slot'],
-    RewardSlot.baron_castle_item      : ['#item.Baron?', 'baigan_slot', 'kainazzo_slot'],
-    RewardSlot.toroia_hospital_item   : [],
-    RewardSlot.magnes_item            : ['#item.TwinHarp?', 'darkelf_slot'],
-    RewardSlot.zot_item               : ['#item.EarthCrystal?', 'magus_slot', 'valvalis_slot'],
-    RewardSlot.babil_boss_item        : ['underground?', 'lugae_slot'],
-    RewardSlot.cannon_item            : ['underground?', '#item.Tower?', 'darkimp_slot'],
-    RewardSlot.luca_item              : ['underground?', 'calbrena_slot', 'golbez_slot'],
-    RewardSlot.sealed_cave_item       : ['underground?', '#item.Luca?', 'evilwall_slot'],
-    RewardSlot.found_yang_item        : ['underground?'],
-    RewardSlot.pan_trade_item         : ['underground?', '#item.Pan?'],
-    RewardSlot.feymarch_item          : ['underground?'],
-    RewardSlot.rat_trade_item         : ['#item.fe_Hook?', '#item.Rat?'],
-    RewardSlot.rydias_mom_item        : ['dmist?'],
-    }
-
 SUMMON_QUEST_SLOTS = {
     RewardSlot.sylph_item             : ['underground?', '#item.Pan?'],
     RewardSlot.feymarch_queen_item    : ['underground?', 'asura_slot'],
@@ -322,11 +301,11 @@ MOD_BOSS_SLOTS = {
     'dlunar_slot'           : ['moon?'],
     'ogopogo_slot'          : ['moon?'], 
     }
-
-MAGNES_BOSS_SLOT = {
+    
+MAGNES_SLOT = {
     'darkelf_slot'          : ['#item.TwinHarp?'],
     }
-    
+
 BOSSES = [
     'dmist',
     'officer',
@@ -380,6 +359,7 @@ MOD_BOSSES = [
     'karate',
     'baigan',
     'kainazzo',
+    'darkelf',
     'magus',
     'valvalis',
     'calbrena',
@@ -405,7 +385,6 @@ MOD_BOSSES = [
 HARUMPH = [
     'darkelf',    
     ]
-    
 QUEST_REWARD_CURVES = {
     'Ungated_Quest' : [
         RewardSlot.starting_item,
@@ -419,7 +398,7 @@ QUEST_REWARD_CURVES = {
 
     'Gated_Quest' : [
         RewardSlot.baron_castle_item,
-        RewardSlot.magnes_item,
+#        RewardSlot.magnes_item,
         RewardSlot.zot_item,
         RewardSlot.babil_boss_item,
         RewardSlot.cannon_item,
@@ -579,8 +558,8 @@ def apply(env):
     mod_boss_slots = MOD_BOSS_SLOTS.copy()
     bosses = list(BOSSES)
     mod_bosses = list(MOD_BOSSES)
-    magnes_boss_slot = MAGNES_BOSS_SLOT.copy()
-    harumph = list(HARUMPH)
+    # magnes_boss_slot = MAGNES_SLOT.copy()
+    # harumph = list(HARUMPH)
 
     if env.options.flags.has('key_items_force_magma'):
         prevent_hook_seed = True
@@ -632,25 +611,16 @@ def apply(env):
             rewards_assignment.update(keyitem_assignment)
 
         # assign bosses
-#        for g,h in enumerate(magnes_boss_slot):
-#           boss_assignment[h] = harumph[g]
+        # for h in magnes_boss_slot:
+        #     boss = h.replace('_slot', '')
+        #     boss_assignment[h] = boss
+        boss_assignment['darkelf_spot'] = "darkelf"        
 
         if not env.options.flags.has('bosses_vanilla'):
-#            env.rnd.shuffle(mod_bosses)
-#            for i,k in enumerate(mod_boss_slots):
-            env.rnd.shuffle(bosses)
-            for i,k in enumerate(BOSS_SLOTS):
-                boss_assignment[k] = bosses[i]
-                
-            if boss_assignment['darkelf_slot'] != 'darkelf':
-                for findharumph in boss_assignment:
-                   if boss_assignment[findharumph] == 'darkelf':
-                       trespasser = boss_assignment['darkelf_slot']
-                       boss_assignment[findharumph] = trespasser
-                       break
-                boss_assignment['darkelf_slot'] = 'darkelf'
-            
-            
+            env.rnd.shuffle(mod_bosses)
+            for i,k in enumerate(mod_boss_slots):
+                boss_assignment[k] = mod_bosses[i]
+
             if 'boss' in env.options.test_settings:
                 for force_slot in env.options.test_settings['boss']:
                     force_boss = env.options.test_settings['boss'][force_slot]
@@ -665,7 +635,7 @@ def apply(env):
         else:
             # vanilla assignment
             used_bosses = set()
-            for k in boss_slots:
+            for k in mod_boss_slots:
                 boss = k.replace('_slot', '')
                 boss_assignment[k] = boss
                 used_bosses.add(boss)
@@ -705,8 +675,8 @@ def apply(env):
             if rewards_assignment[slot] == EmptyReward():
                 continue
 
-            if slot in ALL_ITEM_SLOTS:
-                src_branch = ALL_ITEM_SLOTS[slot]
+            if slot in ITEM_SLOTS:
+                src_branch = ITEM_SLOTS[slot]
             elif slot in SUMMON_QUEST_SLOTS:
                 src_branch = SUMMON_QUEST_SLOTS[slot]
             elif slot in MOON_BOSS_SLOTS:
@@ -845,7 +815,7 @@ def apply(env):
         # revised Rivers rando
         curves_dbview = databases.get_curves_dbview()
 
-        unassigned_quest_slots = [slot for slot in (list(ALL_ITEM_SLOTS) + list(SUMMON_QUEST_SLOTS) + list(MOON_BOSS_SLOTS)) if slot not in rewards_assignment]
+        unassigned_quest_slots = [slot for slot in (list(ITEM_SLOTS) + list(SUMMON_QUEST_SLOTS) + list(MOON_BOSS_SLOTS)) if slot not in rewards_assignment]
         # if env.options.flags.has('no_free_key_item'):
         #     unassigned_quest_slots.remove(RewardSlot.toroia_hospital_item)
         # else:
@@ -980,7 +950,6 @@ def apply(env):
     # assign fixed reward slots
     #  (note: smith reward is assigned in custom_weapon_rando)
     rewards_assignment[RewardSlot.magnes_item] = ItemReward('#item.DkMatter')
-    
     if env.meta.get('has_objectives', False) and env.meta.get('zeromus_required', True):
         rewards_assignment[RewardSlot.fixed_crystal] = KeyItemReward('#item.Crystal')
 
@@ -1031,7 +1000,7 @@ def apply(env):
         for item in ESSENTIAL_KEY_ITEMS:
             for k in rewards_assignment:
                 if rewards_assignment[k] == item:
-                    if k in ALL_ITEM_SLOTS:
+                    if k in ITEM_SLOTS:
                         breakdown['normal'] += 1
                     elif k in SUMMON_QUEST_SLOTS:
                         breakdown['summon'] += 1
@@ -1045,11 +1014,11 @@ def apply(env):
     # need a table indicating which slots could contain key items for hinting
     # purposes, might as well do that here
     if env.options.hide_flags:
-        potential_key_item_slots = list(ALL_ITEM_SLOTS) + list(SUMMON_QUEST_SLOTS) + list(MOON_BOSS_SLOTS) + list(CHEST_ITEM_SLOTS)
+        potential_key_item_slots = list(ITEM_SLOTS) + list(SUMMON_QUEST_SLOTS) + list(MOON_BOSS_SLOTS) + list(CHEST_ITEM_SLOTS)
     elif env.options.flags.has('key_items_vanilla'):
         potential_key_item_slots = [s for s in range(RewardSlot.MAX_COUNT) if s in rewards_assignment and isinstance(rewards_assignment[s], ItemReward) and rewards_assignment[s].is_key]
     else:
-        potential_key_item_slots = list(ALL_ITEM_SLOTS)
+        potential_key_item_slots = list(ITEM_SLOTS)
         # if env.options.flags.has('no_free_key_item'):
         #     potential_key_item_slots.remove(RewardSlot.toroia_hospital_item)
         # else:
@@ -1067,7 +1036,7 @@ def apply(env):
     # setup objectives reference table, and create boss metadata for random objectives purposes
     boss_objective_consts = []
     env.meta['available_bosses'] = set()
-    for slot in MOD_BOSS_SLOTS:
+    for slot in BOSS_SLOTS:
         boss_objective_consts.append(f'#objective.boss_{boss_assignment[slot]}')
         env.meta['available_bosses'].add(boss_assignment[slot])
     env.add_script('patch($21f840 bus) {\n' + '\n'.join(boss_objective_consts) + '\n}')
@@ -1088,12 +1057,12 @@ def apply(env):
     env.spoilers.add_table("KEY ITEM LOCATIONS)", key_item_spoilers, public=env.options.flags.has_any('-spoil:all', '-spoil:keyitems'))
 
     quest_spoilers = []
-    for slot in list(ALL_ITEM_SLOTS) + list(SUMMON_QUEST_SLOTS) + list(MOON_BOSS_SLOTS) + [RewardSlot.pink_trade_item]:
+    for slot in list(ITEM_SLOTS) + list(SUMMON_QUEST_SLOTS) + list(MOON_BOSS_SLOTS) + [RewardSlot.pink_trade_item] + [RewardSlot.magnes_item]:
         if slot in rewards_assignment:
             reward = rewards_assignment[slot]
             if type(reward) is EmptyReward:
                 reward_text = "(nothing)"
-            elif REWARD_SLOT_SPOILER_NAMES[slot] == 'RewardSlot.magnes_item' or REWARD_SLOT_SPOILER_NAMES[slot] == "Cave Magnes item":
+            elif slot == 'RewardSlot.magnes_item':
                 reward_text = "REDACTED - h :)"
             else:
                 reward_text = item_spoiler_names[reward.item]
@@ -1134,7 +1103,7 @@ if __name__ == '__main__':
             for i in range(args.iterations):
                 result = randomize(env)
 
-                key_item_slots = list(ALL_ITEM_SLOTS)
+                key_item_slots = list(ITEM_SLOTS)
                 if options.flags.has('Kq'):
                     key_item_slots.extend(SUMMON_QUEST_SLOTS)
                 if options.flags.has('Km'):

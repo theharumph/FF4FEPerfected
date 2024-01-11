@@ -3,7 +3,7 @@
 
 var NAVBAR_HTML = `
   <div id="nav">
-    <a class="home" href="/">FF4FE</a>
+    <a class="home" href="/">FF4FE Perfected</a>
     <a href="/make">Play</a>
     <a href="/resources">Resources</a>
     <a href="/changelog">Changelog</a>

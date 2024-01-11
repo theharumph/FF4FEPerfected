@@ -3,7 +3,7 @@
 
 var FOOTER_HTML = `
   <div id="footer">
-    Free Enterprise is a labor-of-love fan project and is not affiliated
+    FF4FE Perfected, like Free Enterprise, is a labour-of-love fan project and is not affiliated
     in any way with Square Enix.
   </div>
   `;

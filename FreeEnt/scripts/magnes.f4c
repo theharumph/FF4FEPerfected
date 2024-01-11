@@ -196,7 +196,6 @@ event($73)  //Dark Elf 'Me Attack You' battle
     p #DarkElfSeal toggle visible
     player move down
     player face up
-    [#B #Objectives_Tick #objective.quest_music]
 }
 
 event($81)  //Dark Elf 'Fire2' battle
@@ -218,10 +217,9 @@ event($81)  //Dark Elf 'Fire2' battle
         }
         pause 4
     }
-    [#B #Rando_BossBattle #rando.darkelf_slot]
+
     music #None
-    [#B #Objectives_TickBossSlot #rando.darkelf_slot]
-    [#B #Rando_PostBossBattle #rando.darkelf_slot]
+
     pause 8
     message $E0   // "Dark Elf:W_ WHY DID THAT  MUSIC REACH HERE?"
 
@@ -271,7 +269,7 @@ event($74)  //Obtaining the Earth Crystal
     music #Prelude
     [#B #Objectives_TickRewardSlot #reward_slot.magnes_item]
     [#B #Rando_DeliverRewardFromSlot #reward_slot.magnes_item]
-    [#B #Objectives_Tick #objective.quest_magnes]
+    [#B #Objectives_Tick #objective.internal_magnes]
 }
 
 text(bank 1 message $DB) {
@@ -436,20 +434,20 @@ monster($AB)   // Dark Elf
 {
     boss
     level 99
-    hp 65000
+    hp 61000
     gp 0
     xp 0
     attack index $DF         // (99, 99, 254)
     defense index $60        // (0, 0, 0)
     magic defense index $DF  // (99, 99, 254)
-    speed index $31          // (31, 31)
+    speed index $2E          // (43, 46)
     drop index $00
     drop rate $00
     attack sequence $9F
     spell power 57
     gfx {
         size $97
-        palette $AB
+        palette $92
         pointer $A834
     }
 }
@@ -461,19 +459,18 @@ monster($AC)   // Dark Elf
     hp 65000
     gp 0
     xp 0
-    attack index $00         // (1, 75, 18)
+    attack index $1F         // (4, 99, 54)
     defense index $60        // (0, 0, 0)
     magic defense index $DF  // (99, 99, 254)
-    speed index $32          // (9, 9)
+    speed index $2E          // (43, 46)
     drop index $00
     drop rate $00
-    attack sequence $A0
-    weak element #Holy #Immune
-    spell power 1
-    reaction sequence $A1
+    attack sequence $DE
+    spell power 32
+    reaction sequence $AD
     gfx {
         size $97
-        palette $AB
+        palette $92
         pointer $A834
     }
 }
@@ -481,26 +478,23 @@ monster($AC)   // Dark Elf
 monster($C3)   // Dark Elf
 {
     boss
-    level 19
+    level 99
     hp 65000
     gp 0
     xp 0
     attack index $1F         // (4, 99, 54)
     defense index $63        // (0, 0, 3)
     magic defense index $DF  // (99, 99, 254)
-    speed index $38          // (11, 11)
+    speed index $2E          // (43, 46)
     drop index $00
     drop rate $00
-    attack sequence $A2
-    resist element #Holy #Absorb
-    resist status #Blind #Mute #Piggy #Mini #Toad #Stone #Swoon #Calcify1 #Calcify2 #Berserk #Charm #Sleep #Stun #Float #Curse
-    weak element #Holy #Immune
-    spell power 15
-    race #Dragon
+    attack sequence $DF
+    spell power 32
+    reaction sequence $C9
     gfx {
         size $07
-        palette $C3
-        pointer $96A8
+        palette $92
+        pointer $9828
     }
 }
 
