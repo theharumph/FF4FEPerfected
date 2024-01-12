@@ -16,7 +16,7 @@ Defeat Milon, Milon Z., Kainazzo, Valvalis, Rubicant, and Elements to complete t
 [Omode:harp]
 <ul>
     <li>Complete THE HARP CHECK at Cave Magnes.</li>
-    <li>Setting THE HARP CHECK mode will force Oreq:all.</li>
+    <li>Setting THE HARP CHECK mode will force Oreq:all and Owin:crystal.</li>
     <li>WARNING: This flagset may result in an unwinnable seed.  I don't play nice.  Always fade the harp.</li>
 </ul>
 
@@ -37,29 +37,18 @@ Complete the required number of objectives to get the Crystal, then defeat Zerom
     <li>Setting the Pass quest objective with no other P flags will force Pchests to be enabled.</li>
 </ul>
 
-[Kvanilla}
+[Kvanilla]
 <ul>
-<<<<<<< Updated upstream
     <li>Note: The key item check at Cave Magnes has been reassigned to Rydia's Mom and gated by D.Mist.</li>
-    <li>The Knofree is disabled in FF4FE Perfected.</li>
-=======
-    <li>Note: There is no key item check at Cave Magnes.</li>
-    <li>A key item can be obtained by throwing the TwinHarp into the Agart Well.</li>
->>>>>>> Stashed changes
+    <li>The Knofree flag is disabled in FF4FE Perfected.</li>
 </ul>
 
 [Kmain]
 <ul>
     <li>The locations of key items are shuffled amongst each other. For example, you may find the Magma Key in the Antlion's Nest instead of the Sandruby.</li>
     <li>The items randomized this way are the <em>Package, SandRuby, Legend Sword, Baron Key, TwinHarp, Earth Crystal, Magma Key, Tower Key, Airship Hook, Luca Key, Dark Crystal, Pink Tail, Rat Tail, Pan, Spoon, Adamant,</em> and the <em>Crystal used to transform Zeromus</em> (yes, you have to find it.)</li>
-<<<<<<< Updated upstream
     <li>Note: The key item check at Cave Magnes has been reassigned to Rydia's Mom and gated by D.Mist.</li>
-    <li>The Knofree is disabled in FF4FE Perfected.</li>
-=======
-    <li>Note: There is no key item check at Cave Magnes.</li>
-    <li>A key item can be obtained by throwing the TwinHarp into the Agart Well.</li>
-
->>>>>>> Stashed changes
+    <li>The Knofree flag is disabled in FF4FE Perfected.</li>
 </ul>
 
 [Ksummon]
@@ -70,9 +59,6 @@ Key items may be awarded by the bosses of the Lunar Subterrane.
 
 [Kmiab]
 This excludes monster-in-a-box chests in the Lunar Subterrane, unless also using Kmoon or Kunsafe.
-
-[Knofree]
-Edward in Toroia will not give you a key item. Instead, a key item may be earned from Rydia's mom in Mist, who will appear after you have found and defeated the Mist Dragon.
 
 [Kforce:magma]
 You are guaranteed that there is a path to the underworld via the Magma Key, without needing to use the Hook route through Cave Eblan.

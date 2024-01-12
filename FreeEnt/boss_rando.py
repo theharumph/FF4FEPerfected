@@ -9,6 +9,7 @@ from copy import copy
 CSV_OUTPUT = False
 
 BOSS_SLOTS = list(core_rando.BOSS_SLOTS)
+MOD_BOSS_SLOTS = list(core_rando.MOD_BOSS_SLOTS)
 BOSSES = list(core_rando.BOSSES)
 
 SLOTS_WITH_BOSS_DEATH = [
@@ -91,6 +92,7 @@ FORMATION_MAP = {
     'plague' : 0x1FE,
     'dlunar' : 0x1FD,
     'ogopogo' : 0x1FA,
+    'harumph': 0x178,
     }
 
 MONSTER_HP_OFFSETS = {
@@ -305,6 +307,9 @@ BOSS_SPRITES = {
     'ogopogo' : [
         ['Sparkle', 0x00, 0]
         ],
+    'harumph' : [
+        ['Captain', 0x01, 0]
+        ],
 }
 
 MULTITARGET_BOSSES = [
@@ -424,9 +429,53 @@ BOSS_SPOILER_NAMES = {
     'plague' : 'Plague',
     'dlunar' : 'D.Lunars',
     'ogopogo' : 'Ogopogo',
+    'harumph' : 'harumph',
 }
 
+<<<<<<< Updated upstream
 BOSS_SLOT_SPOILER_NAMES = { f"{b}_slot": BOSS_SPOILER_NAMES[b] + " position" for b in BOSS_SPOILER_NAMES }
+=======
+BOSS_SPOILER_NAMES = {
+    'dmist' : 'D.Mist',
+    'officer' : 'Kaipo Officer/Soldiers',
+    'octomamm' : 'Octomamm',
+    'antlion' : 'Antlion',
+    'waterhag' : 'WaterHag',
+    'mombomb' : 'MomBomb',
+    'fabulgauntlet' : 'Fabul Gauntlet',
+    'milon' : 'Milon',
+    'milonz' : 'Milon Z.',
+    'mirrorcecil' : 'D.Knight',
+    'guard' : 'Baron Inn Guards',
+    'karate' : 'Karate',
+    'baigan' : 'Baigan',
+    'kainazzo' : 'Kainazzo',
+    'darkelf' : 'Dark Elf',
+    'magus' : 'Magus Sisters',
+    'valvalis' : 'Valvalis',
+    'calbrena' : 'Calbrena',
+    'golbez' : 'Golbez',
+    'lugae' : 'Lugae',
+    'darkimp' : 'Dark Imps',
+    'kingqueen' : 'King/Queen Eblan',
+    'rubicant' : 'Rubicant',
+    'evilwall' : 'EvilWall',
+    'asura' : 'Asura',
+    'leviatan' : 'Leviatan',
+    'odin' : 'Odin',
+    'bahamut' : 'Bahamut',
+    'elements' : 'Elements',
+    'cpu' : 'CPU',
+    'paledim' : 'Pale Dim',
+    'wyvern' : 'Wyvern',
+    'plague' : 'Plague',
+    'dlunar' : 'D.Lunars',
+    'ogopogo' : 'Ogopogo',
+    'harumph' : 'REDACTED',
+}
+
+BOSS_SLOT_SPOILER_NAMES = { f"{b}_slot": BOSS_SPOILER_NAMESLOT[b] + " position" for b in BOSS_SPOILER_NAMESLOT }
+>>>>>>> Stashed changes
 
 ALT_GAUNTLETS = {
     'dmist_slot' : [0x07, 0x05, 0x08, 0xD0, 0xD1],
@@ -470,6 +519,8 @@ def _is_moon_formation(formation_number):
         return True
     elif (formation_number in [0x1AE, 0x1B3, 0x1B4, 0x1B7]):
         return True
+    elif (formation_number >= 0x1F5):
+        return False
     elif (formation_number >= 0x1F0):
         return True
     else:

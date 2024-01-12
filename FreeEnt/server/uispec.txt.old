@@ -63,7 +63,6 @@
 ..[Ksummon]! Mix with summon quest rewards
 ..[Kmoon]! Mix with moon boss rewards
 ..[Kmiab]! Mix with monster-in-a-box chests
-..[Knofree]! No free key item in Toroia
 ..<> Underworld access
 ...(Kforce:magma) Guarantee underworld access via Magma Key
 ...(Kforce:hook)! Force underworld access via Hook route
@@ -71,7 +70,6 @@
 
 == PASS
 [Pshop] Include Pass in a shop
-[Pkey] Include Pass in potential key item locations
 [Pchests] Include Pass in treasure chests
 
 == CHARACTERS

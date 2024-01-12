@@ -53,7 +53,7 @@
     quest_ordeals                            Complete Mt. Ordeals
     quest_baroninn                           Defeat the bosses of Baron Inn
     quest_baroncastle                        Liberate Baron Castle
-    quest_agart                              Drop the TwinHarp into the Agart Well
+   #quest_magnes                             Complete Cave Magnes
     quest_zot                                Complete the Tower of Zot
     quest_dwarfcastle                        Defeat the bosses of Dwarf Castle
     quest_lowerbabil                         Defeat the boss of Lower Bab-il

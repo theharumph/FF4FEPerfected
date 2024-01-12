@@ -456,16 +456,11 @@ class FlagLogicCore:
                 flagset.set('Owin:game')
                 self._lib.push(log, ['correction', 'Objectives set without outcome specified; added Owin:game'])
 
-            # Force Oreq:all if harp check enabled
-            if flagset.has('Omode:harp') and not flagset.has('Oreq:all'):
-                flagset.set('Oreq:all')
-                self._lib.push(log, ['correction', 'HARP CHECK is enabled; forced to add Oreg:all'])
-            
-            # force Pchests if pass objective is set
+            # force Pkey if pass objective is set
             pass_quest_flags = flagset.get_list(r'^O\d+:quest_pass$')
             if len(pass_quest_flags) > 0 and flagset.has('Pnone'):
-                flagset.set('Pchests')
-                self._lib.push(log, ['correction', 'Pass objective is set without a pass flag; forced to add Pchests'])
+                flagset.set('Pkey')
+                self._lib.push(log, ['correction', 'Pass objective is set without a pass flag; forced to add Pkey'])
 
             # check for conflict between objective required characters and available ones
             char_objective_flags = flagset.get_list(r'^O\d+:char_')
