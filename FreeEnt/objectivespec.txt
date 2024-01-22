@@ -24,7 +24,7 @@
     boss_karate                              Defeat Karate
     boss_baigan                              Defeat Baigan
     boss_kainazzo                            Defeat Kainazzo
-   #boss_darkelf                             Defeat the Dark Elf (dragon form)
+    boss_darkelf                             Defeat the Dark Elf (dragon form)
     boss_magus                               Defeat the Magus Sisters
     boss_valvalis                            Defeat Valvalis
     boss_calbrena                            Defeat Calbrena

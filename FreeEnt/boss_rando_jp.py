@@ -1,21 +1,10 @@
 from . import core_rando
+from .boss_rando_formation_data_jp import *
 from .palette_wizard import PaletteWizard
 from .address import *
 from .spoilers import SpoilerRow
 import math
-import os
-from . import bstats
 from copy import copy
-
-if bstats.is_jp:
-    if bstats.is_unsafe:
-        from .boss_rando_formation_data_jp_unsafe import *
-    else:
-        from .boss_rando_formation_data_jp import *
-elif bstats.is_et:
-    from .boss_rando_formation_data_et import *        
-else:
-    from .boss_rando_formation_data_us import *        
 
 CSV_OUTPUT = False
 
@@ -104,10 +93,6 @@ FORMATION_MAP = {
     'ogopogo' : 0x1FA,
     }
 
-FORMATION_MAGNES = {
-    'darkelf' : 0x178,
-    }
-
 MONSTER_HP_OFFSETS = {
     0xA4 : 10000,  # Mombomb
     0xA5 : 1000,   # Milon
@@ -116,6 +101,16 @@ MONSTER_HP_OFFSETS = {
     0xC4 : 45600,  # Waterhag :>
     0xB9 : 57000,  # K.Eblan
     0xBA : 57000,  # Q.Eblan
+    }
+
+
+MONSTER_HP_SCALED_THRESHOLDS = {
+    0xAA : { 0x02 : 700.0 / 5312.0 },    # Kainazzo
+    0xB3 : { 0x04 : 100.0 / 5315.0 },    # Calbrena
+    0xBB : { 0x0A : 1000.0 / 34000.0 },  # Rubicant
+    0xC1 : { 0x08 : 11000.0 / 60000.0,   # Elements
+             0x07 : 40000.0 / 60000.0 }, 
+    0xC2 : { 0x09 : 30000.0 / 60000.0 }  # Elements
     }
 
 MONSTER_SCRIPTED_CHANGES = {
@@ -311,9 +306,6 @@ BOSS_SPRITES = {
     'ogopogo' : [
         ['Sparkle', 0x00, 0]
         ],
-    'harumph' : [
-        ['Captain', 0x01, 0]
-        ],
 }
 
 MULTITARGET_BOSSES = [
@@ -433,7 +425,6 @@ BOSS_SPOILER_NAMES = {
     'plague' : 'Plague',
     'dlunar' : 'D.Lunars',
     'ogopogo' : 'Ogopogo',
-    
 }
 
 BOSS_SLOT_SPOILER_NAMES = { f"{b}_slot": BOSS_SPOILER_NAMES[b] + " position" for b in BOSS_SPOILER_NAMES }
@@ -475,12 +466,6 @@ ALT_GAUNTLETS = {
     'ogopogo_slot' : [0x197, 0x1A3, 0x197, 0x199, 0x19A],
 }
 
-
-
-
-
-
-         
 def _is_moon_formation(formation_number):
     if (formation_number >= 0x180 and formation_number <= 0x1A3):
         return True
@@ -492,7 +477,6 @@ def _is_moon_formation(formation_number):
         return False
 
 def _get_cumulative_formation(formation_data):
-    
     if type(formation_data) is not list:
         formation_data = [formation_data]
 
@@ -501,6 +485,8 @@ def _get_cumulative_formation(formation_data):
         if type(f) is int:
             if f == 0xDA:  # fabul gauntlet formation remap
                 f = FORMATION_DATA[0xF7]
+            elif f == 0xE7:
+                f = FORMATION_DATA[0x178]
             else:
                 f = FORMATION_DATA[f]
 
@@ -559,7 +545,6 @@ def _get_spell_power_ratio(monster1, monster2):
 
 
 def apply(env):
-       
     # random boss assignments handled in core_rando
 
     script_lines = []
@@ -577,12 +562,8 @@ def apply(env):
         boss = assignment[slot]
         is_alt_gauntlet = (env.options.flags.has('bosses_alt_gauntlet') and boss == 'fabulgauntlet')
 
-        if slot != 'darkelf_slot':
-             source_formation_id = FORMATION_MAP[slot[:-5]] # remove "_slot" suffix
-             target_formation_id = FORMATION_MAP[boss]
-        else:
-             source_formation_id = FORMATION_MAGNES['darkelf'] 
-             target_formation_id = FORMATION_MAP['darkelf']
+        source_formation_id = FORMATION_MAP[slot[:-5]] # remove "_slot" suffix
+        target_formation_id = FORMATION_MAP[boss]
 
         script_lines.append(f'// {slot} <- {boss}')
 

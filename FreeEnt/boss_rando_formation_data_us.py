@@ -135,6 +135,10 @@ FORMATION_DATA = {
     0x1FA : {
         0x9A : { 'name' : 'Ogopogo', 'qty' : 1, 'hp' : 37000, 'level' : 62, 'attack' : (11, 99, 150), 'defense' : (4, 55, 4), 'magic defense' : (9, 50, 40), 'speed' : (38, 38), 'spell power' : 127, 'xp' : 61100, 'gp' : 0 },  # Ogopogo 
     },
+    0x178 : {
+        0x48 : { 'name' : 'harumph', 'qty' : 1, 'hp' : 65000, 'level' : 99, 'attack' : (9, 99, 122), 'defense' : (0, 0, 0), 'magic defense' : (99, 99, 254), 'speed' : (43, 46), 'spell power' : 32, 'xp' : 0, 'gp' : 0 },  # harumph
+        0x6F : { 'name' : 'harumph', 'qty' : 1, 'hp' : 65000, 'level' : 99, 'attack' : (9, 99, 122), 'defense' : (10, 80, 54), 'magic defense' : (10, 80, 54), 'speed' : (89, 89), 'spell power' : 32, 'xp' : 0, 'gp' : 0 },  # harumph
+    },
 }
 
 STATS_TABLE = [
@@ -430,3 +434,12 @@ SPEED_TABLE = [
     (111, 111),
     (69, 69),
 ]
+
+MONSTER_HP_SCALED_THRESHOLDS = {
+    0xAA : { 0x02 : 700.0 / 4000.0 },    # Kainazzo
+    0xB3 : { 0x04 : 100.0 / 4624.0 },    # Calbrena
+    0xBB : { 0x0A : 1000.0 / 25200.0 },  # Rubicant
+    0xC1 : { 0x08 : 11000.0 / 57000.0,   # Elements
+             0x07 : 40000.0 / 57000.0 }, 
+    0xC2 : { 0x09 : 27000.0 / 47000.0 }  # Elements
+    }

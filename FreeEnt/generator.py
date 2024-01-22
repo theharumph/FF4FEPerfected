@@ -12,6 +12,7 @@ import json
 import datetime
 import uuid
 import enum
+from . import bstats
 
 import pyaes
 
@@ -565,7 +566,11 @@ def build(romfile, options, force_recompile=False):
         '',
         f"SEED:       {env.options.seed}"
         )
-
+    
+    bstats.is_jp = env.options.flags.has('bosses_jp')
+    bstats.is_unsafe = env.options.flags.has('bosses_unsafe')
+    bstats.is_et = env.options.flags.has('bosses_et')
+    
     if env.options.hide_flags:
         env.spoilers.add_raw(f"HIDDEN INFO:",
         '',
@@ -614,6 +619,10 @@ def build(romfile, options, force_recompile=False):
 
     if options.flags.has('japanese_abilities'):
         env.add_file('scripts/japanese_abilities.f4c')
+        
+    if options.flags.has('bosses_jp'):
+        env.add_file('scripts/japanese_agility.f4c')    
+        env.add_file('scripts/japanese_scripts.f4c') 
 
     RANDO_MODULES = [
         core_rando,
@@ -657,7 +666,13 @@ def build(romfile, options, force_recompile=False):
 
     env.add_file('scripts/midiharp.f4c')
     HARP_SONGS_DIR = os.path.join(os.path.dirname(__file__), 'compiled_songs')
-    song_asset = select_from_catalog(os.path.join(HARP_SONGS_DIR, 'catalog'), env) + '.asset'
+
+    
+    if not options.flags.has('vanilla_harp'):
+        song_asset = select_from_catalog(os.path.join(HARP_SONGS_DIR, 'catalog'), env) + '.asset'
+    else:
+        song_asset = 'vanilla_harp.f4c'
+        
     env.add_substitution('midiharp default credits', '')
     with open(os.path.join(HARP_SONGS_DIR, song_asset), 'r') as infile:
         harp_script = infile.read()
@@ -666,13 +681,13 @@ def build(romfile, options, force_recompile=False):
     # hack: add a block area to insert default names in rescript.py
     env.add_scripts('// [[[ NAMES START ]]]\n// [[[ NAMES END ]]]')
 
-    # if options.flags.has('no_free_key_item'):
-    #    env.add_file('scripts/rydias_mom_slot.f4c')
+    if options.flags.has('no_free_key_item'):
+        env.add_file('scripts/rydias_mom_slot.f4c')
 
-    # if options.flags.has('no_free_bosses'):
-    #    env.add_substitution('free boss', '')
-    # else:
-    #    env.add_substitution('no free boss', '')
+    if options.flags.has('no_free_bosses'):
+        env.add_substitution('free boss', '')
+    else:
+        env.add_substitution('no free boss', '')
 
     if options.flags.has('shops_free'):
         env.add_file('scripts/free_items.f4c')

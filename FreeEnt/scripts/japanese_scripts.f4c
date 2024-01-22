@@ -1,0 +1,77 @@
+// modified scripts and such for FF4j bosses
+// Milon Z.
+aigroup($95) {
+    condition set $11 : script $01  // condition flag 1
+    condition set $00 : script $9C  // $FF $FF $FF $FF
+}
+
+aigroup($96) {
+    condition set $08 : script $9D  // anyone (character) uses #Fire magic
+}
+
+text(battle message $AA) {
+Inhale the undead gas!
+}
+
+ai_script($9D)
+{
+    message $AA   // "!"
+    use #Enemy_DullSong
+}
+
+
+
+// Rubicant
+aigroup($B5) {
+    condition set $46 : script $BE  // formation $FD, anyone (character) uses #Fire magic
+    condition set $48 : script $C2  // self hp below index $0A /* 1000 */, anyone (character) uses #Fight
+    condition set $06 : script $C1  // anyone (character) uses #Fight
+    condition set $1A : script $C0  // actor #PCecil dead, anyone (character) uses #Fire magic
+    condition set $1B : script $C0  // actor #ARydia dead, anyone (character) uses #Fire magic
+    condition set $1C : script $C0  // actor #Kain2 dead, anyone (character) uses #Fire magic
+    condition set $1D : script $C0  // actor #Rosa2 dead, anyone (character) uses #Fire magic
+}
+
+
+
+// Asura
+ai_script($E5) // Patch Asura action to Armor
+{
+    set sprite $36
+    target self
+    use #Armor
+    condition 1
+}
+
+spell($5B)  // Patch Asura summon for Armor
+{
+    casting time 0
+    target $02
+    param $01   // 1
+    hit 66
+    boss False
+    effect $0D
+    damage True
+    element $00
+    impact False
+    mp cost 50
+    ignore wall True
+}
+
+
+
+// Doot Doot
+ai_script(moon $30) // 4j doot doot has storm doot
+{
+    fight
+    
+    fight
+    
+    fight
+    
+    fight
+    
+    fight
+
+    use #Enemy_Storm
+}
