@@ -968,8 +968,9 @@ def apply(env):
     boss_objective_consts = []
     env.meta['available_bosses'] = set()
     for slot in BOSS_SLOTS:
-        boss_objective_consts.append(f'#objective.boss_{boss_assignment[slot]}')
-        env.meta['available_bosses'].add(boss_assignment[slot])
+        if boss_assignment[slot] != 'harumph':
+            boss_objective_consts.append(f'#objective.boss_{boss_assignment[slot]}')
+            env.meta['available_bosses'].add(boss_assignment[slot])
     env.add_script('patch($21f840 bus) {\n' + '\n'.join(boss_objective_consts) + '\n}')
 
     # remove golbez item delivery if not needed
