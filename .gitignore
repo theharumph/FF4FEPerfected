@@ -1,0 +1,6 @@
+# hide stuff I don't want going out there
+shit*.f4c
+fuctco*.f4c
+*.old
+*.bak
+*.backup

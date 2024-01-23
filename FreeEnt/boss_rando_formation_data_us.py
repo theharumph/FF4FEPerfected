@@ -76,7 +76,7 @@ FORMATION_DATA = {
     },
     0x1B6 : {
         0xB4 : { 'name' : 'Golbez', 'qty' : 1, 'hp' : 22001, 'level' : 31, 'attack' : (5, 99, 68), 'defense' : (0, 0, 0), 'magic defense' : (0, 0, 0), 'speed' : (27, 27), 'spell power' : 1, 'xp' : 15000, 'gp' : 10000 },  # Golbez  
-        0xB5 : { 'name' : 'Shadow', 'qty' : 1, 'hp' : 1, 'level' : 7, 'attack' : (6, 99, 86), 'defense' : (3, 30, 4), 'magic defense' : (0, 0, 0), 'speed' : (66, 66), 'spell power' : 31, 'xp' : 5000, 'gp' : 1000 },  # Shadow  
+        0xB5 : { 'name' : 'Shadow', 'qty' : 1, 'hp' : 5000, 'level' : 7, 'attack' : (6, 99, 86), 'defense' : (3, 30, 4), 'magic defense' : (0, 0, 0), 'speed' : (66, 66), 'spell power' : 31, 'xp' : 5000, 'gp' : 1000 },  # Shadow  
     },
     0x1A9 : {
         0xB6 : { 'name' : 'Dr.Lugae', 'qty' : 1, 'hp' : 4416, 'level' : 32, 'attack' : (1, 75, 18), 'defense' : (0, 0, 0), 'magic defense' : (3, 60, 11), 'speed' : (11, 11), 'spell power' : None, 'xp' : 5500, 'gp' : 2000 },  # Dr.Lugae

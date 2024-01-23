@@ -9,18 +9,6 @@ aigroup($96) {
     condition set $08 : script $9D  // anyone (character) uses #Fire magic
 }
 
-text(battle message $AA) {
-Inhale the undead gas!
-}
-
-ai_script($9D)
-{
-    message $AA   // "!"
-    use #Enemy_DullSong
-}
-
-
-
 // Rubicant
 aigroup($B5) {
     condition set $46 : script $BE  // formation $FD, anyone (character) uses #Fire magic
@@ -30,17 +18,6 @@ aigroup($B5) {
     condition set $1B : script $C0  // actor #ARydia dead, anyone (character) uses #Fire magic
     condition set $1C : script $C0  // actor #Kain2 dead, anyone (character) uses #Fire magic
     condition set $1D : script $C0  // actor #Rosa2 dead, anyone (character) uses #Fire magic
-}
-
-
-
-// Asura
-ai_script($E5) // Patch Asura action to Armor
-{
-    set sprite $36
-    target self
-    use #Armor
-    condition 1
 }
 
 spell($5B)  // Patch Asura summon for Armor
@@ -58,7 +35,26 @@ spell($5B)  // Patch Asura summon for Armor
     ignore wall True
 }
 
+// ------------------------
 
+text(battle message $AA) {
+Inhale the undead gas!
+}
+
+ai_script($9D)
+{
+    message $AA   // "!"
+    use #Enemy_DullSong
+}
+
+// Asura
+ai_script($E5) // Patch Asura action to Armor
+{
+    set sprite $36
+    target self
+    use #Armor
+    condition 1
+}
 
 // Doot Doot
 ai_script(moon $30) // 4j doot doot has storm doot

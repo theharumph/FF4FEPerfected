@@ -69,6 +69,7 @@ F4C_FILES = '''
     scripts/dialog_box_background.f4c
     scripts/bank00_extensions.f4c
     scripts/post_battle.f4c
+    scripts/playable_golbez.f4c
 
     scripts/titlescreen.f4c
     scripts/opening.f4c
@@ -623,6 +624,7 @@ def build(romfile, options, force_recompile=False):
     if options.flags.has('bosses_jp'):
         env.add_file('scripts/japanese_agility.f4c')    
         env.add_file('scripts/japanese_scripts.f4c') 
+        env.add_file('scripts/zeromus_jp.f4c')
 
     RANDO_MODULES = [
         core_rando,
