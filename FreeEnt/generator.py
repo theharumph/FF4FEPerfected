@@ -54,6 +54,7 @@ from .util import Distribution
 
 F4C_FILES = '''
     scripts/default.consts
+    scripts/_tester_.f4c
     scripts/unused.f4c
     scripts/consts.f4c
     scripts/npcs.f4c
@@ -70,6 +71,7 @@ F4C_FILES = '''
     scripts/bank00_extensions.f4c
     scripts/post_battle.f4c
     scripts/playable_golbez.f4c
+    
 
     scripts/titlescreen.f4c
     scripts/opening.f4c
@@ -166,6 +168,8 @@ F4C_FILES = '''
     scripts/fix_edward_ghost_command.f4c
     scripts/fix_attack_power_overflow.f4c
     scripts/uptco_surprise.f4c
+    scripts/fuctco_surprise.f4c
+    scripts/shit_to_hide.f4c
     scripts/sound_engine.f4c
     scripts/mute.f4c
     scripts/no_flashing.f4c
@@ -187,6 +191,7 @@ F4C_FILES = '''
     scripts/blank_textbox_fix.f4c
     scripts/cycle_party_leader.f4c
     scripts/item_delivery_quantity.f4c
+
 '''
 
 BINARY_PATCHES = {

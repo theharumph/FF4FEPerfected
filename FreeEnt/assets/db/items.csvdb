@@ -33,7 +33,7 @@ code,const,name,spoilername,category,subtype,j,flag,tier,shopoverride,price,thro
 0x1F,#item.DrainSword,[sword]Drain,Drain Sword,weapon,sword,,,3,,5000,yes,yes,,,"kain,pcecil"
 0x20,#item.Ancient,[sword]Ancient,Ancient Sword,weapon,sword,,,1,,3000,yes,yes,,,"kain,pcecil"
 0x21,#item.Sleep,[sword]Slumber,Slumber Sword,weapon,sword,,,3,,6000,yes,yes,,,"kain,pcecil"
-0x22,#item.Obsidian,[sword]Obsidian,Obsidian Sword,weapon,sword,,D,,,1,yes,yes,,golbez
+0x22,#item.Obsidian,[sword]Obsidian,Obsidian Sword,weapon,sword,,D,,,0,yes,yes,,golbez
 0x23,#item.Spear,[spear]Spear,Spear,weapon,spear,,,1,,60,,yes,,,kain
 0x24,#item.Wind,[spear]Wind,Wind Spear,weapon,spear,,,2,,7000,,yes,,,kain
 0x25,#item.FlameSpear,[spear]Flame,Flame Spear,weapon,spear,,,3,,11000,,yes,,,kain

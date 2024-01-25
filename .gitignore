@@ -4,3 +4,5 @@ fuctco*.f4c
 *.old
 *.bak
 *.backup
+consts.f4c
+_tester_.f4c

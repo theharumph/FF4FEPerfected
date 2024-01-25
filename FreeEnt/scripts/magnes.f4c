@@ -161,7 +161,6 @@ event($73)  //Dark Elf 'Me Attack You' battle
     player lie down
     player visible
     toggle screen fade
-    take item #TwinHarp
     pause 4
     p #Harp move left
     p #Harp toggle visible
@@ -267,6 +266,7 @@ event($74)  //Obtaining the Earth Crystal
     deactivate #CaveMagnesCrystal
     message #msg.fe_ReceivedFanfare
     music #CharacterDied
+    set #FuckYouThatsWhy
     [#B #Objectives_TickRewardSlot #reward_slot.magnes_item]
     [#B #Rando_DeliverRewardFromSlot #reward_slot.magnes_item]
     [#B #Objectives_Tick #objective.internal_magnes]
@@ -336,4 +336,6 @@ We can't_
 }
 
 
-
+text(map name $47) {
+THE HARP CHECK
+}

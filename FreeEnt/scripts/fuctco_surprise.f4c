@@ -263,7 +263,7 @@ ai_script(moon $48)
 
         use #GhostAnna
         
-        message $40   // Edward!
+        message $3E   // Edward!
         message $3E   // You're going to die!
 
         use #GhostDisappear
