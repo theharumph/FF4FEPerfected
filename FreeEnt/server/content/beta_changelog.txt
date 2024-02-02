@@ -1,4 +1,22 @@
-2024-01-06
-starting rebrand, updated entry screen, double gated Cave Magnes, remove Magnes from KI pool
+FF4FE Perfected
+v4.6.1.test
+(2024-02-01)
+
+Harp perfection is currently in development but not ready for release.  This release was intended 
+to get FF4j and Easytype stats/scripting out for testing. 
+
+The following flags are being introduced:
+- Kstats:jp
+  - Boss scripts and stats align with the Japanese release of FF4.
+  - Asura summon spell now casts Armor, Cure3 or Life1.
+
+- Kstats:et
+  - Boss scripts and stats align with the Easy Type release of FF4.
+
+- H Flags
+  - Hrandom (default) makes the harp song a random selection from a smaller pool than the original.
+  - Hvanilla makes Edward take all requests as long as it's "Melody of Lute".
+  - Hnone makes Edward play air harp.
+
 
 
