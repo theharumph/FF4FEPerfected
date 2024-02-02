@@ -6,3 +6,6 @@ fuctco*.f4c
 *.backup
 consts.f4c
 _tester_.f4c
+*pycache*/
+*.py[cod]
+*$py.class

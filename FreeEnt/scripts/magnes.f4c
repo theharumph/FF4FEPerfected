@@ -206,32 +206,35 @@ event($81)  //Dark Elf 'Fire2' battle
     }
     // autodetected map #CaveMagnesCrystalRoom
     map message 3  // "GRRR_ YOU_ YOU_!"
-    [#B #Rando_CheckFlag #randoflag.bosses]
-    [#B #If #Flag #flag.Result] {
-        map message 0 // ME CHANGE
-        sound #BlackMagic
+ //   [#B #Rando_CheckFlag #randoflag.bosses]
+ //   [#B #If #Flag #flag.Result] {
+ //       map message 0 // ME CHANGE
+        
+       sound #BlackMagic
         batch 5 {
             p #TrueForm toggle visible
             p #DarkElf toggle visible
         }
         pause 4
-    }
+//    }
+
+    fight $82
 
     music #None
 
     pause 8
     message $E0   // "Dark Elf:W_ WHY DID THAT  MUSIC REACH HERE?"
 
-    [#B #If #Flag #flag.Result] {
-        batch 10 {
-            p #TrueForm toggle visible
-        }
-    }
-    [#B #If #not_Flag #flag.Result] {
-        batch 10 {
-            p #DarkElf toggle visible
-        }
-    }
+ //   [#B #If #Flag #flag.Result] {
+     batch 10 {
+         p #TrueForm toggle visible
+     }
+//    }
+//    [#B #If #not_Flag #flag.Result] {
+//        batch 10 {
+//            p #DarkElf toggle visible
+//        }
+//    }
 
     sound $7E
     batch 8 {

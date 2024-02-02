@@ -135,9 +135,9 @@ FORMATION_DATA = {
     0x1FA : {
         0x9A : { 'name' : 'Ogopogo', 'qty' : 1, 'hp' : 30000, 'level' : 62, 'attack' : (11, 99, 152), 'defense' : (4, 55, 4), 'magic defense' : (9, 50, 40), 'speed' : (38, 38), 'spell power' : 127, 'xp' : 61100, 'gp' : 0 },  # Ogopogo 
     },
-    0x178 : {
-        0x48 : { 'name' : 'harumph', 'qty' : 1, 'hp' : 65000, 'level' : 99, 'attack' : (9, 99, 122), 'defense' : (0, 0, 0), 'magic defense' : (99, 99, 254), 'speed' : (43, 46), 'spell power' : 32, 'xp' : 0, 'gp' : 0 },  # harumph
-        0x6F : { 'name' : 'harumph', 'qty' : 1, 'hp' : 65000, 'level' : 99, 'attack' : (9, 99, 122), 'defense' : (10, 80, 54), 'magic defense' : (10, 80, 54), 'speed' : (89, 89), 'spell power' : 32, 'xp' : 0, 'gp' : 0 },  # harumph
+    0x82 : {
+        0x48 : { 'name' : 'darkelf2', 'qty' : 1, 'hp' : 65000, 'level' : 99, 'attack' : (9, 99, 122), 'defense' : (0, 0, 0), 'magic defense' : (99, 99, 254), 'speed' : (43, 46), 'spell power' : 32, 'xp' : 0, 'gp' : 0 },  # darkelf2
+        0x6F : { 'name' : 'darkelf2', 'qty' : 1, 'hp' : 65000, 'level' : 99, 'attack' : (9, 99, 122), 'defense' : (10, 80, 54), 'magic defense' : (10, 80, 54), 'speed' : (89, 89), 'spell power' : 32, 'xp' : 0, 'gp' : 0 },  # darkelf2
     },
 }
 

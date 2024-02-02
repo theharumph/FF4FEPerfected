@@ -6,20 +6,7 @@ import math
 import os
 from . import bstats
 from copy import copy
-
-print(bstats.is_jp)
-print(bstats.is_unsafe)
-print(bstats.is_et)
-
-if bstats.is_jp:
-    if bstats.is_unsafe:
-        from .boss_rando_formation_data_jp_unsafe import *
-    else:
-        from .boss_rando_formation_data_jp import *
-elif bstats.is_et:
-    from .boss_rando_formation_data_et import *        
-else:
-    from .boss_rando_formation_data_us import *        
+from .boss_rando_formation_data_jp import *
 
 CSV_OUTPUT = False
 
@@ -315,7 +302,7 @@ BOSS_SPRITES = {
     'ogopogo' : [
         ['Sparkle', 0x00, 0]
         ],
-    'harumph' : [
+    'darkelf2' : [
         ['Captain', 0x01, 0]
         ],
 }

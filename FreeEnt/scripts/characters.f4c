@@ -196,7 +196,11 @@ npc(#AdultRydia4) { sprite $91 }
 
 // set the NPCs we use for cutscenes to all default inactive
 npc(#PaladinCecil2)     { default inactive }
-npc(#Edward2)           { default inactive }
+npc(#Edward2) 
+{ 
+    sprite #Golbez 
+    default inactive
+}
 npc(#Palom2)            { default inactive }
 npc(#Porom2)            { default inactive }
 npc(#Cid1)              { default inactive }

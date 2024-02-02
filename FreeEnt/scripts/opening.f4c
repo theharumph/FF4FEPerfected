@@ -144,7 +144,7 @@ event($10)  //Opening events
             p #Kain1 face down
         }
         // %if wacky_challenge_enabled%
-        music #LongWayToGo
+        // music #LongWayToGo
         // %else%
         music #Opening
         // %end%
@@ -182,9 +182,9 @@ event($10)  //Opening events
         pause 2
         player face down
         // %if wacky_challenge_enabled%
-        music #FatChocobo
+        // music #LongWayToGo
         // %else%
-        music #Prologue
+        music #Opening
         // %end%
         batch {
             p #Baigan face right

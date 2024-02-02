@@ -39,6 +39,7 @@ TOUGH_QUEST_OBJECTIVES_EXCLUDED = [
     'quest_fabul',
     'quest_ordeals',
     'quest_baroninn',
+    'quest_agart',
     'quest_pass',
     'quest_dwarfcastle',
     'quest_lowerbabil',

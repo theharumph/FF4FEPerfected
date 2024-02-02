@@ -82,7 +82,7 @@ ITEM_SLOTS = {
     RewardSlot.baron_inn_item         : ['guard_slot', 'karate_slot'],
     RewardSlot.baron_castle_item      : ['#item.Baron?', 'baigan_slot', 'kainazzo_slot'],
     RewardSlot.toroia_hospital_item   : [],
-    RewardSlot.magnes_item            : ['#item.TwinHarp?'],
+#    RewardSlot.magnes_item            : ['#item.TwinHarp?'],
     RewardSlot.agart_item             : ['#item.TwinHarp?'],
     RewardSlot.zot_item               : ['#item.EarthCrystal?', 'magus_slot', 'valvalis_slot'],
     RewardSlot.babil_boss_item        : ['underground?', 'lugae_slot'],
@@ -104,7 +104,7 @@ ALL_ITEM_SLOTS = {
     RewardSlot.baron_inn_item         : ['guard_slot', 'karate_slot'],
     RewardSlot.baron_castle_item      : ['#item.Baron?', 'baigan_slot', 'kainazzo_slot'],
     RewardSlot.toroia_hospital_item   : [],
-    RewardSlot.magnes_item            : ['#item.TwinHarp?'],
+#    RewardSlot.magnes_item            : ['#item.TwinHarp?'],
     RewardSlot.agart_item             : ['#item.TwinHarp?'],
     RewardSlot.zot_item               : ['#item.EarthCrystal?', 'magus_slot', 'valvalis_slot'],
     RewardSlot.babil_boss_item        : ['underground?', 'lugae_slot'],
@@ -353,7 +353,7 @@ QUEST_REWARD_CURVES = {
         RewardSlot.baron_throne_item,
         RewardSlot.rydias_mom_item,
         RewardSlot.agart_item,
-        RewardSlot.magnes_item,
+#        RewardSlot.magnes_item,
     ],
 
     'Moon_Quest' : [
@@ -581,8 +581,8 @@ def apply(env):
                 print('  {} <- {}'.format(k, boss_assignment[k]))
             print(f'remaining slots: {",".join([str(s) for s in remaining_slots])}')
 
-        #add assignment for harumph
-        boss_assignment['darkelf_slot'] = 'harumph'
+        #add assignment for darkelf2
+        boss_assignment['darkelf_slot'] = 'darkelf2'
         
         # build dependency checker
         checker = dep_checker.DepChecker()
@@ -642,9 +642,13 @@ def apply(env):
             # (or Dark Cecil in NFL2)
             mean_bosses = ['golbez', 'wyvern', 'valvalis', boss_assignment['odin_slot']]
 
+            # code to add Karate slot to mean bosses if bosses_jp and no_free_bosses on as spot scales to 62k hp
+            if env.options.flags.has('no_free_bosses') and env.options.flags.has('bosses_jp') and boss_assignment['karate_slot'] not in mean_bosses:
+                mean_bosses.append(boss_assignment['karate_slot'])
+
             if env.options.flags.has('no_free_bosses') and 'mirrorcecil' not in mean_bosses:
                 mean_bosses.append('mirrorcecil')
-                
+             
             # obscure special case: if a mean boss is in Yang's slot, and
             #  DMist is in guard slot, and DMist gates underworld, then
             #  that's bad
@@ -968,7 +972,7 @@ def apply(env):
     boss_objective_consts = []
     env.meta['available_bosses'] = set()
     for slot in BOSS_SLOTS:
-        if boss_assignment[slot] != 'harumph':
+        if boss_assignment[slot] != 'darkelf2':
             boss_objective_consts.append(f'#objective.boss_{boss_assignment[slot]}')
             env.meta['available_bosses'].add(boss_assignment[slot])
     env.add_script('patch($21f840 bus) {\n' + '\n'.join(boss_objective_consts) + '\n}')
